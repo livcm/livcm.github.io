@@ -1,1 +1,1 @@
-see index.html
+See index.html or https://livcm.github.io
