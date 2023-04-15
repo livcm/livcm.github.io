@@ -12,13 +12,14 @@ The page is building...
 - Email: <15578180582@qq.com>
 ## My Game account
 - Genshin Impact UID
-   128888756 (天空岛)
-   505549212 (世界树)
-   836010689 (Asia)
+   - 128888756 (天空岛)
+   - 505549212 (世界树)
+   - 836010689 (Asia)
 ## Donate
 Click [Here](/articles/donate.html "Donate").
 
 ------
 
 [Back to the Main page](/ "Back to the Main page")
+
 Powered by GitHub Pages. Copyright ©️ 2022-2023 livcm. All Rights Reserved.
