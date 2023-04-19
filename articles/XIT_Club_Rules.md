@@ -93,3 +93,7 @@ XIT Club 的地区为中国大陆，依据中华人民共和国法律活动。
 XIT Club 领导小组
 
 2023年4月15日
+
+------
+
+**Copyright ©️ 2022-2023 XIT Club. All Rights Reserved.**

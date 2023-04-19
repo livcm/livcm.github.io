@@ -1,10 +1,10 @@
 # Welcome!
-The page is building...
+The website is building...
 ## Online tools
 - [AirPortal](https://airportal.cn "AirPortal")
 - [Visual Studio Code](https://vscode.dev "Visual Studio Code")
 - [GPU Benchmark (volumeshader_bm)](https://cznull.github.io/vsbm "GPU Benchmark (volumeshader_bm)")
-- [Digital Clock](/clock.html "Digital Clock")
+- [Digital Clock](./clock.html "Digital Clock")
 ## Contact me
 - GitHub: [livcm (Qihuan Jun)](https://github.com/livcm/ "GitHub")
 - Bilibili: [奇幻菌livcm](https://space.bilibili.com/423883286/ "Bilibili")
@@ -16,10 +16,8 @@ The page is building...
    - 505549212 (世界树)
    - 836010689 (Asia)
 ## Donate
-Click [Here](/articles/donate.html "Donate").
+Click [Here](./articles/donate.html "Donate").
 
 ------
 
-[Back to the Main page](/ "Back to the Main page")
-
-Powered by GitHub Pages. Copyright ©️ 2022-2023 livcm. All Rights Reserved.
+**Powered by GitHub Pages. Copyright ©️ 2022-2023 livcm. All Rights Reserved.**
