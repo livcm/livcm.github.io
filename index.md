@@ -8,6 +8,7 @@ The site is building...
 - [Visual Studio Code](https://vscode.dev "Visual Studio Code")
 - [GPU Benchmark (volumeshader_bm)](https://cznull.github.io/vsbm "GPU Benchmark (volumeshader_bm)")
 - [Digital Clock](./clock.html "Digital Clock")
+- [Google Translate](https://translate.google.com "Google Translate")
 
 ## Contact me
 
