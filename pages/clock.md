@@ -1,7 +1,7 @@
 <script src="../assets/time.js" type="text/javascript"></script>
 # <center>Current Time</center>
 
-<div id="CurrentTime"></div>
+# <center><div id="CurrentTime"></div></center>
 
 ------
 
