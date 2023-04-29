@@ -1,7 +1,6 @@
 <script src="../assets/time.js" type="text/javascript"></script>
-# <center>Current Time</center>
-
-# <center><div id="CurrentTime"></div></center>
+<center><h1>Current Time</h1></center>
+<center><h1><div id="CurrentTime"></div></h1></center>
 
 ------
 
