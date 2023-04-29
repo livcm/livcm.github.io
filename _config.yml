@@ -4,9 +4,3 @@ plugins:
 title: livcm's Home
 description: A free and awesome site by livcm
 show_downloads: false
-defaults:
-  -
-    scope:
-      path: ""
-    values:
-      layout: "default"
