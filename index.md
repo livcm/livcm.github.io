@@ -30,7 +30,7 @@ The site is building...
 
 ## Donate
 
-- Click [Here](./pages/donate.html "Donate").
+- Click [Here](./pages/donate.md "Donate").
 
 ---
 
