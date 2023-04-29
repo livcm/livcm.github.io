@@ -3,6 +3,7 @@
 
 ------
 
-**Powered by GitHub Pages. **
+Powered by GitHub Pages.
 
-**Copyright ©️ 2022-2023 livcm. All Rights Reserved.**
+Copyright ©️ 2022-2023 livcm. All Rights Reserved.
+
