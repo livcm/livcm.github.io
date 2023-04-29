@@ -141,4 +141,6 @@ XIT Club 领导小组
 
 2023年4月29日
 
+本条规采用 [知识共享署名-非商业性使用-禁止演绎 4.0（CC BY-NC-ND 4.0）国际许可协议](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh "知识共享许可协议") 进行许可。
+
 版权所有 &copy; 2022-2023 XIT Club。保留所有权利。
