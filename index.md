@@ -7,7 +7,7 @@ The site is building...
 - [AirPortal](https://airportal.cn "AirPortal")
 - [Visual Studio Code Online](https://vscode.dev "Visual Studio Code Online")
 - [GPU Benchmark (volumeshader_bm)](https://cznull.github.io/vsbm "GPU Benchmark (volumeshader_bm)")
-- [Digital Clock](./pages/clock.html "Digital Clock")
+- [Realtime Clock](./pages/clock.html "Realtime Clock")
 - [Google Translate](https://translate.google.com "Google Translate")
 
 ## Contact me
