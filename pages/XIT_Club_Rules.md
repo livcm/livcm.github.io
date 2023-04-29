@@ -141,4 +141,4 @@ XIT Club 领导小组
 
 2023年4月29日
 
-Copyright ©️ 2022-2023 XIT Club. All Rights Reserved.
+版权所有 &copy; 2022-2023 XIT Club. 保留所有权利.
