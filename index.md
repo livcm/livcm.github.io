@@ -2,10 +2,10 @@
 
 The site is building...
 
-## Online tools
+## Website navigation
 
 - [AirPortal](https://airportal.cn "AirPortal")
-- [Visual Studio Code](https://vscode.dev "Visual Studio Code")
+- [Visual Studio Code Online](https://vscode.dev "Visual Studio Code Online")
 - [GPU Benchmark (volumeshader_bm)](https://cznull.github.io/vsbm "GPU Benchmark (volumeshader_bm)")
 - [Digital Clock](./pages/clock.html "Digital Clock")
 - [Google Translate](https://translate.google.com "Google Translate")
@@ -17,7 +17,7 @@ The site is building...
 - Luogu: [livcm](https://www.luogu.com.cn/user/479197 "Luogu")
 - Email: <15578180582@qq.com>
 
-## My Game account
+## My game account
 
 - Genshin Impact UID
   - 128888756 (天空岛)
