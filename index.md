@@ -1,9 +1,3 @@
----
-layout: page
-title: "Home"
-permalink: /
----
-
 # Welcome!
 The website is building...
 ## Online tools
