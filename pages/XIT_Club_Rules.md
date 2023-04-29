@@ -141,10 +141,4 @@ XIT Club 领导小组
 
 2023年4月29日
 
----
-
-[![知识共享许可协议](https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png "知识共享许可协议")](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh)
-
-本文采用 [知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议（CC BY-NC-ND 4.0）](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh) 进行许可。
-
 Copyright ©️ 2022-2023 XIT Club. All Rights Reserved.
