@@ -2,10 +2,6 @@
 
 The site is building...
 
-## Posts
-
-- Click [Here](./pages/posts.html "Posts").
-
 ## Online tools
 
 - [AirPortal](https://airportal.cn "AirPortal")
