@@ -1,6 +1,10 @@
+---
+title: "Home"
+---
+
 # Welcome!
 
-The site is building...
+The website is building...
 
 ------
 
