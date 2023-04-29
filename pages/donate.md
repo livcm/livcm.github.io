@@ -5,6 +5,7 @@ Every support will be remembered.
 ---
 
 Scan the QR Code with your smartphone via Wechat or Alipay.
+
 Click on image to zoom it in.
 
 ## Wechat
