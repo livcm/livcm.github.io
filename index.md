@@ -1,6 +1,6 @@
 # Welcome!
 
-The  is building...
+The site is building...
 
 ## Online tools
 
@@ -25,7 +25,7 @@ The  is building...
 
 ## Donate
 
-Click [Here](./articles/donate.html "Donate").
+Click [Here](./donate.html "Donate").
 
 ---
 

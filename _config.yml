@@ -3,4 +3,4 @@ plugins:
 - jekyll-remote-theme
 title: livcm's Home
 description: A free blog by livcm
-show_downloads: true
+show_downloads: false
