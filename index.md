@@ -1,6 +1,6 @@
 # Welcome!
 
-The blog is building...
+The  is building...
 
 ## Online tools
 
