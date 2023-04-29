@@ -1,5 +1,5 @@
 <script src="../assets/time.js" type="text/javascript"></script>
-# Current Time:
+# <center>Current Time</center>
 
 <div id="CurrentTime"></div>
 
