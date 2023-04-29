@@ -2,7 +2,7 @@
 
 Every support will be remembered.
 
----
+------
 
 Scan the QR Code with your smartphone via Wechat or Alipay.
 
@@ -16,7 +16,7 @@ Click on image to zoom it in.
 
 [<img src="../assets/alipay.png" alt="Alipay" title="Alipay" style="zoom:67%;" />](../assets/alipay.png)
 
----
+------
 
 Powered by GitHub Pages.
 
