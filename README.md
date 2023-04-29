@@ -8,4 +8,4 @@ See <https://livcm.github.io>
 
 This repository is licensed under a [Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 (CC BY-NC-ND 4.0) International License](http://creativecommons.org/licenses/by-nc-nd/4.0/).
 
-Copyright ©️ 2022-2023 livcm. All Rights Reserved.
+Copyright &copy; 2022-2023 livcm. All Rights Reserved.
