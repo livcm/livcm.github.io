@@ -38,9 +38,3 @@ The site is building...
 ## Donate
 
 - Click [Here](./pages/donate "Donate").
-
----
-
-Powered by GitHub Pages.
-
-Copyright ©️ 2022-2023 livcm. All Rights Reserved.

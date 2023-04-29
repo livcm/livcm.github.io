@@ -15,9 +15,3 @@ Click on image to zoom it in.
 ## Alipay
 
 [<img src="../assets/images/alipay.png" alt="Alipay" title="Alipay" style="zoom:67%;" />](../assets/alipay.png)
-
-------
-
-Powered by GitHub Pages.
-
-Copyright ©️ 2022-2023 livcm. All Rights Reserved.
