@@ -18,4 +18,6 @@ Click on image to zoom it in.
 
 ---
 
-**Powered by GitHub Pages. Copyright ©️ 2022-2023 livcm. All Rights Reserved.**
+**Powered by GitHub Pages. **
+
+**Copyright ©️ 2022-2023 livcm. All Rights Reserved.**
