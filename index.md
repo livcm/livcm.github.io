@@ -2,12 +2,16 @@
 
 The site is building...
 
+## Posts
+
+- Click [Here](./pages/posts.html "Posts").
+
 ## Online tools
 
 - [AirPortal](https://airportal.cn "AirPortal")
 - [Visual Studio Code](https://vscode.dev "Visual Studio Code")
 - [GPU Benchmark (volumeshader_bm)](https://cznull.github.io/vsbm "GPU Benchmark (volumeshader_bm)")
-- [Digital Clock](./clock.html "Digital Clock")
+- [Digital Clock](./pages/clock.html "Digital Clock")
 - [Google Translate](https://translate.google.com "Google Translate")
 
 ## Contact me
@@ -26,7 +30,7 @@ The site is building...
 
 ## Donate
 
-Click [Here](./donate.html "Donate").
+- Click [Here](./pages/donate.html "Donate").
 
 ---
 
