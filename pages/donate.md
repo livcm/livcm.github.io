@@ -9,11 +9,11 @@ Click on image to zoom it in.
 
 ## Wechat
 
-[`<img src="../assets/wechat.png" alt="Wechat" title="Wechat" style="zoom:67%;" />`](../assets/wechat.png)
+[<img src="../assets/wechat.png" alt="Wechat" title="Wechat" style="zoom:67%;" />](../assets/wechat.png)
 
 ## Alipay
 
-[`<img src="../assets/alipay.png" alt="Alipay" title="Alipay" style="zoom: 50%;" />`](../assets/alipay.png)
+[<img src="../assets/alipay.png" alt="Alipay" title="Alipay" style="zoom:67%;" />](../assets/alipay.png)
 
 ---
 
