@@ -6,6 +6,6 @@ See [https://livcm.github.io](https://livcm.github.io)
 
 ------
 
-This website is licensed under a [http://creativecommons.org/licenses/by-nc-nd/4.0/"](Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 (CC BY-NC-ND 4.0) International License).
+This website is licensed under a [http://creativecommons.org/licenses/by-nc-nd/4.0/](Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 (CC BY-NC-ND 4.0) International License).
 
 Copyright ©️ 2022-2023 livcm. All Rights Reserved.
