@@ -30,7 +30,7 @@ The website is building...
 - GitHub: [livcm (Qihuan Jun)](https://github.com/livcm/ "GitHub")
 - Bilibili: [奇幻菌livcm](https://space.bilibili.com/423883286/ "Bilibili")
 - Luogu: [livcm](https://www.luogu.com.cn/user/479197 "Luogu")
-- Email: <15578180582@qq.com>
+- [![Email](https://img.shields.io/badge/Email-15578180582%40qq.com-blue.svg "Email")](15578180582@qq.com)
 
 ## My game account
 
