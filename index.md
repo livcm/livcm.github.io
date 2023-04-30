@@ -27,10 +27,10 @@ The website is building...
 
 ## Contact me
 
-- GitHub: [livcm (Qihuan Jun)](https://github.com/livcm/ "GitHub")
-- Bilibili: [奇幻菌livcm](https://space.bilibili.com/423883286/ "Bilibili")
-- Luogu: [livcm](https://www.luogu.com.cn/user/479197 "Luogu")
-- [![Email](https://img.shields.io/badge/Email-15578180582%40qq.com-blue.svg "Email")](15578180582@qq.com)
+- [![GitHub](https://img.shields.io/badge/GitHub-livcm-brightgreen.svg?style=flat-square&logo=github "GitHub")](https://github.com/livcm/)
+- [![Bilibili](https://img.shields.io/badge/Bilibili-奇幻菌livcm-ff69b4.svg?style=flat-square&logo=bilibili "Bilibili")](https://space.bilibili.com/423883286/)
+- [![Luogu](https://img.shields.io/badge/Luogu-livcm-blue.svg?style=flat-square "Luogu")](https://www.luogu.com.cn/user/479197)
+- ![Email](https://img.shields.io/badge/Email-15578180582%40qq.com-blue.svg?style=flat-square&logo=maildotru "Email")
 
 ## My game account
 
