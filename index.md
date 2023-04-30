@@ -10,15 +10,11 @@ The website is building...
 
 ## Posts
 <ul>
-  {% if site.posts %}
     {% for post in site.posts %}
       <li>
         <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
       </li>
     {% endfor %}
-  {% else %}
-    <li>Empty...</li>
-  {% endif %}
 </ul>
 
 ## Online tools
