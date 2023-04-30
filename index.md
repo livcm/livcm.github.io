@@ -38,6 +38,8 @@ The website is building...
   - 128888756 (天空岛)
   - 505549212 (世界树)
   - 836010689 (Asia)
+- Honkai: Star Rail UID
+  - 806085675 (Asia)
 
 ## Donate
 
