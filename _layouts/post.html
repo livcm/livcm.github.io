@@ -11,6 +11,10 @@ layout: default
 {{content}}
 
 <small>
+{% if page.categories %}
+  category: <em>{{ page.categories }}</em>
+{% endif %}
+<br>
 {% if page.tags %}
   tags: <em>{{ page.tags | join: "</em> / <em>" }}</em>
 {% endif %}
