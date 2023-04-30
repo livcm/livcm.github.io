@@ -11,7 +11,10 @@ layout: default
 
 <hr>
 <small>
+{% if page.category %}
+
+{% endif %}
 {% if page.tags %}
-  tags: <em>{{ page.tags | join: "</em> - <em>" }}</em>
+  tags: <em>{{ page.tags | join: "</em> / <em>" }}</em>
 {% endif %}
 </small>
