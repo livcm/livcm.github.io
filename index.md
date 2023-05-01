@@ -11,7 +11,7 @@ title: "Home"
 # <center>Dashboard</center>
 
 <center>
- <a href="https://github.com/livcm/livcm.github.io/stargazers" title="GitHub Stars"><img src="https://img.shields.io/github/stars/livcm/livcm.github.io.svg?style=for-the-badge&color=yellow&logo=github" alt="GitHub stars" /></a> <a href="https://github.com/livcm/livcm.github.io/commits/main" title="GitHub last commit"><img src="https://img.shields.io/github/last-commit/livcm/livcm.github.io.svg?style=for-the-badge&logo=github" alt="GitHub last commit" /></a> <a href="https://github.com/livcm/livcm.github.io/commits/main" title="GitHub commit activity"><img src="https://img.shields.io/github/commit-activity/w/livcm/livcm.github.io.svg?label=commit%20activity&style=for-the-badge&logo=github" alt="GitHub commit activity" /></a> 
+ <a href="https://github.com/livcm/livcm.github.io/stargazers" title="GitHub Stars"><img src="https://img.shields.io/github/stars/livcm/livcm.github.io.svg?style=for-the-badge&color=yellow&logo=github" alt="GitHub stars" /></a> <a href="https://github.com/livcm/livcm.github.io/commits/main" title="Last commit of this repository"><img src="https://img.shields.io/github/last-commit/livcm/livcm.github.io.svg?style=for-the-badge" alt="Last commit of this repository" /></a> <a href="https://github.com/livcm/livcm.github.io/commits/main" title="Commit activity of this repository"><img src="https://img.shields.io/github/commit-activity/w/livcm/livcm.github.io.svg?label=commit%20activity&style=for-the-badge" alt="Commit activity of this repository" /></a> 
 </center>
 
 <center>
