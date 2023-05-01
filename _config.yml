@@ -1,6 +1,6 @@
 theme: jekyll-theme-hacker
 title: "livcm's Home"
 description: "A free and awesome website by livcm"
-show_downloads: false
+show_downloads: true
 author: livcm
 lang: 
