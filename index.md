@@ -15,7 +15,7 @@ title: "Home"
 </center>
 
 <center>
-  <a title="Creative Commons License" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" src="https://img.shields.io/badge/BY--NC--ND-4.0-orange.svg?style=for-the-badge&logo=creativecommons" /></a> <a href="https://github.com/livcm/livcm.github.io/blob/main/LICENSE" title="Anti 996 License"><img src="https://img.shields.io/badge/license-Anti%20996-red.svg?style=for-the-badge" alt="Anti 996 License" /></a> <a href="https://996.icu" title="996.icu"><img src="https://img.shields.io/badge/link-996.icu-red.svg?style=for-the-badge" alt="996.icu" /></a>
+  <a title="Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="CC BY-NC-ND 4.0 License" src="https://img.shields.io/badge/BY--NC--ND-4.0-orange.svg?style=for-the-badge&logo=creativecommons" /></a> <a href="https://github.com/livcm/livcm.github.io/blob/main/LICENSE" title="Anti 996 License"><img src="https://img.shields.io/badge/license-Anti%20996-red.svg?style=for-the-badge" alt="Anti 996 License" /></a> <a href="https://996.icu" title="996.icu"><img src="https://img.shields.io/badge/link-996.icu-red.svg?style=for-the-badge" alt="996.icu" /></a>
 </center>
 
 <center>
