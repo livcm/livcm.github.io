@@ -3,8 +3,8 @@ title: "Home"
 ---
 
 <script src="./assets/scripts/time.js" type="text/javascript"></script>
-# <center>Current Time</center>
-<center><h1><div id="CurrentTime"></div></h1></center>
+# Current Time
+- <h1><div id="CurrentTime"></div></h1>
 
 # <center>Badges</center>
 
