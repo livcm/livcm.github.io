@@ -6,8 +6,6 @@ title: "Home"
 # <center>Current Time</center>
 <center><h1><div id="CurrentTime"></div></h1></center>
 
-------
-
 # <center>Badges</center>
 
 <center>
@@ -26,8 +24,6 @@ title: "Home"
       <a href="{{ site.github.repository_url }}" title="View on GitHub"><img src="https://img.shields.io/badge/View%20on-GitHub-brightgreen.svg?logo=github&style=for-the-badge" alt="View on GitHub"></a>
   </section>  
 </center>
-
-------
 
 # <center>Contact me</center>
 
