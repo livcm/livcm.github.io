@@ -4,7 +4,7 @@ title: "Home"
 
 <script src="./assets/scripts/time.js" type="text/javascript"></script>
 
-# Current Time
+# Current Time:
 
 <h1><div id="CurrentTime"></div></h1>
 
