@@ -4,6 +4,6 @@ See <https://livcm.github.io>.
 
 ------
 
-All pages of the site are licensed under a [Creative Commons Attribution-NonCommercial-NoDerivatives (CC BY-NC-ND) 4.0 International License](http://creativecommons.org/licenses/by-nc-nd/4.0/ "Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License").
+All pages of the site are licensed under a [CC BY-NC-ND 4.0](http://creativecommons.org/licenses/by-nc-nd/4.0/ "Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License") International License.
 
 Copyright &copy; 2022-2023 livcm. All Rights Reserved.
