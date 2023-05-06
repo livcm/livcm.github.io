@@ -6,7 +6,7 @@ title: "Home"
 
 # Current Time
 
-- <h1><div id="CurrentTime"></div></h1>
+<h1><div id="CurrentTime"></div></h1>
 
 # <center>Badges</center>
 
