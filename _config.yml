@@ -3,6 +3,6 @@ plugins:
 - jekyll-remote-theme
 title: "livcm's Home"
 description: "A free and wonderful blog by livcm."
-show_downloads: true
+show_downloads: false
 author: livcm
 lang: zh-CN
