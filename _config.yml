@@ -2,7 +2,7 @@ remote_theme: pages-themes/hacker@v0.2.0
 plugins:
 - jekyll-remote-theme
 title: "livcm's Home"
-description: "A free site by livcm"
-show_downloads: false
+description: "A free and wonderful blog by livcm."
+show_downloads: true
 author: livcm
 lang: zh-CN
