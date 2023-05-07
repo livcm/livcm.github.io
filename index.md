@@ -18,7 +18,7 @@ title: "Home"
 
 ------
 
-# Contact me
+# Contact Me
 
 - [![GitHub](https://img.shields.io/badge/GitHub-livcm-brightgreen.svg?style=social&logo=github)](https://github.com/livcm/ "GitHub")
 - [![Bilibili](https://img.shields.io/badge/Bilibili-奇幻菌livcm-ff69b4.svg?style=social&logo=bilibili&logoColor=black)](https://space.bilibili.com/423883286/ "Bilibili")
