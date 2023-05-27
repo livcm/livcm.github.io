@@ -36,4 +36,4 @@ title: "Home"
 
 ## Feedback
 
-Open a issue on GitHub.
+Open an issue on GitHub.
