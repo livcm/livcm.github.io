@@ -33,3 +33,7 @@ title: "Home"
   - 836010689 (Asia)
 - Honkai: Star Rail UID
   - 806085675 (Asia)
+
+## Feedback
+
+Open a issue on GitHub.
