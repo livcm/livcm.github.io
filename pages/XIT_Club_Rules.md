@@ -1,10 +1,7 @@
 ---
 layout: nohead
+title: "XIT Club 条规"
 ---
-
-# XIT Club 条规
-
-------
 
 ## 关于条规
 
