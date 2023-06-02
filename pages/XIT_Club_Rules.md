@@ -1,3 +1,7 @@
+---
+layout: nohead
+---
+
 # XIT Club 条规
 
 ------
