@@ -12,3 +12,5 @@ title: "Everyday Genshin | livcm's Home"
 ------
 
 Source: Pixiv (via Anosu)
+
+**Warning: Don't refresh too fast!!!**
