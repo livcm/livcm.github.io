@@ -1,4 +1,5 @@
 ---
+layout: nohead
 title: "Everyday Genshin"
 ---
 
