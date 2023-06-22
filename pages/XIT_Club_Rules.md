@@ -142,7 +142,7 @@ XIT Club QQ 群的头像和封面由 Public 群的热心成员设计。XIT Club 
 
 **加入 XIT Club 则自动视为您同意条规中的内容，如果您不同意条规中的部分或全部内容，请您立即主动退出 XIT Club，特此声明。**
 
-总编写/润色/校对/发布：@livcm
+起草/修改/校对/发布：@livcm
 
 XIT Club 领导小组
 
