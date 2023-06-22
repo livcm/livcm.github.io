@@ -3,7 +3,7 @@ layout: nohead
 title: "Everyday Genshin | livcm's Home"
 ---
 
-<a href="/" title="Home" class="btn">Home</a>
+<a href="/" title="Home" class="btn">Home</a><center>Everyday Genshin</center>
 
 ------
 
