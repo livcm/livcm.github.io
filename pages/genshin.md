@@ -11,4 +11,4 @@ title: "Everyday Genshin | livcm's Home"
 
 Source: Pixiv (via Anosu api)
 
-<a href="/" title="Home">Back to Home</a>
+<a href="/" alt="Home">Back to Home</a>

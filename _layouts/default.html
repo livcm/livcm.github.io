@@ -12,15 +12,15 @@
   <body>
     <header>
       <div class="container">
-        <a id="a-title" title="Back to Home page" href="{{ '/' | relative_url }}">
+        <a id="a-title" alt="Back to Home" href="{{ '/' | relative_url }}">
           <h1>{{ site.title | default: site.github.repository_name }}</h1>
         </a>
         <h2>{{ site.description | default: site.github.project_tagline }}</h2>
         <a href="/" title="Home" class="btn">Home</a>
-        <a href="/pages/posts" title="Posts" class="btn">Posts</a>
-        <a href="/pages/genshin" title="Everyday Genshin" class="btn">Everyday Genshin</a>
-        <a href="/pages/donate" title="Donate" class="btn">Donate</a>
-        <a href="{{ site.github.repository_url }}" title="Source Code" class="btn btn-github">Source Code on GitHub</a>
+        <a href="/pages/posts" alt="Posts" class="btn">Posts</a>
+        <a href="/pages/genshin" alt="Everyday Genshin" class="btn">Everyday Genshin</a>
+        <a href="/pages/donate" alt="Donate" class="btn">Donate</a>
+        <a href="{{ site.github.repository_url }}" alt="Source Code" class="btn btn-github">Source Code on GitHub</a>
       </div>
     </header>
 
