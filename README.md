@@ -14,4 +14,4 @@ Copyright &copy; 2022-2023 livcm. All Rights Reserved.
 
 ## Link
 
-<https://996.icu>
+[996.icu](https://996.icu)
