@@ -12,6 +12,6 @@
 
 ## License & Copyright
 
-All posts of this blog are licensed under a [CC BY-NC-ND 4.0](http://creativecommons.org/licenses/by-nc-nd/4.0/ "Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License") International License.
+All posts of this blog are licensed under a [CC BY-NC-ND 4.0](http://creativecommons.org/licenses/by-nc-nd/4.0/) International License.
 
 Copyright &copy; 2022-2023 livcm. All Rights Reserved.
