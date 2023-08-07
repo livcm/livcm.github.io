@@ -13,7 +13,6 @@ title: "Home"
 # Stats
 
 - [![GitHub Stars](https://img.shields.io/github/stars/livcm/livcm.github.io.svg?style=for-the-badge&color=yellow&logo=github)](https://github.com/livcm/livcm.github.io/stargazers) [![Last Commit](https://img.shields.io/github/last-commit/livcm/livcm.github.io.svg?style=for-the-badge)](https://github.com/livcm/livcm.github.io/commits/main) [![Commit Activity](https://img.shields.io/github/commit-activity/w/livcm/livcm.github.io.svg?label=commit%20activity&style=for-the-badge)](https://github.com/livcm/livcm.github.io/commits/main)
-- [![Source Code](https://img.shields.io/badge/Source_Code-On_GitHub-brightgreen.svg?logo=github&style=for-the-badge)]({{ site.github.repository_url }})
 
 
 # License
