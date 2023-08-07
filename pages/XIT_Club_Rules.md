@@ -36,7 +36,7 @@ XIT Club 的前身是由 @Fatfish 建立的小天才电话手表破解团队 XTC
 1. 条规是 XIT Club 唯一的书面性规章文件，对社团的各项事务起强制性规定作用，每个成员都至少应该阅读一次。
 2. 对于条规中的内容，如有不理解可询问管理员。如原文已表述清楚则管理员有权不再解释。
 3. 条规2023年1月29日以前使用 Microsoft Word 编写，2023年1月29日以后使用 Pages 文稿 编写，2023年4月15日以后使用 Typora 编写并存放在 @奇幻菌livcm 的个人网站（<https://livcm.github.io/pages/XIT_Club_Rules>），通过适当途径分享链接。
-4. 本条规采用 [知识共享 署名-非商业性使用-禁止演绎（CC BY-NC-ND）4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh "知识共享 署名-非商业性使用-禁止演绎 4.0")  国际许可协议 进行许可。
+4. 本条规采用 [知识共享 署名-非商业性使用-禁止演绎（CC BY-NC-ND）4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh)  国际许可协议 进行许可。
 5. 条规会依据需要而修改，领导小组对条规有最终解释权。
 
 ### 黑名单
