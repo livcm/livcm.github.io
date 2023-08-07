@@ -6,7 +6,7 @@ See <https://livcm.github.io>.
 
 ## License & Copyright
 
-[![LICENSE](https://img.shields.io/badge/BY--NC--ND-4.0-orange.svg?style=for-the-badge&logo=creativecommons)](http://creativecommons.org/licenses/by-nc-nd/4.0/) [![LICENSE](https://img.shields.io/badge/license-Anti%20996-red.svg?style=for-the-badge)](./LICENSE)
+[![LICENSE](https://img.shields.io/badge/BY--NC--ND-4.0-orange.svg?logo=creativecommons)](http://creativecommons.org/licenses/by-nc-nd/4.0/) [![LICENSE](https://img.shields.io/badge/License-Anti_996-red.svg)](./LICENSE)
 
 All posts of this blog are licensed under a [CC BY-NC-ND 4.0](http://creativecommons.org/licenses/by-nc-nd/4.0/ "Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License") International License.
 

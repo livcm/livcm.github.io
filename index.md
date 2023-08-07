@@ -15,7 +15,7 @@ title: "Home"
 - [![GitHub Stars](https://img.shields.io/github/stars/livcm/livcm.github.io.svg?style=for-the-badge&color=yellow&logo=github)](https://github.com/livcm/livcm.github.io/stargazers) [![Last Commit](https://img.shields.io/github/last-commit/livcm/livcm.github.io.svg?style=for-the-badge)](https://github.com/livcm/livcm.github.io/commits/main) [![Commit Activity](https://img.shields.io/github/commit-activity/w/livcm/livcm.github.io.svg?label=commit%20activity&style=for-the-badge)](https://github.com/livcm/livcm.github.io/commits/main)
 
 # License 
-- [![CC BY-NC-ND 4.0 License](https://img.shields.io/badge/BY--NC--ND-4.0-orange.svg?style=for-the-badge&logo=creativecommons)](http://creativecommons.org/licenses/by-nc-nd/4.0/) [![Anti 996 License](https://img.shields.io/badge/license-Anti%20996-red.svg?style=for-the-badge)](https://github.com/livcm/livcm.github.io/blob/main/LICENSE)
+- [![CC BY-NC-ND 4.0 License](https://img.shields.io/badge/BY--NC--ND-4.0-orange.svg?logo=creativecommons)](http://creativecommons.org/licenses/by-nc-nd/4.0/) [![Anti 996 License](https://img.shields.io/badge/License-Anti_996-red.svg)](https://github.com/livcm/livcm.github.io/blob/main/LICENSE)
 - [![Source Code](https://img.shields.io/badge/Source%20Code%20on-GitHub-brightgreen.svg?logo=github&style=for-the-badge)]({{ site.github.repository_url }}) [![996.icu](https://img.shields.io/badge/link-996.icu-red.svg?style=for-the-badge)](https://996.icu)
 
 ------
