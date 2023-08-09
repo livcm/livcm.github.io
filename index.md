@@ -10,18 +10,9 @@ title: "Home"
 
 ------
 
-# Stats
+## Stats
 
 - [![GitHub Stars](https://img.shields.io/github/stars/livcm/livcm.github.io.svg?style=for-the-badge&color=yellow&logo=github)](https://github.com/livcm/livcm.github.io/stargazers) [![Last Commit](https://img.shields.io/github/last-commit/livcm/livcm.github.io.svg?style=for-the-badge)](https://github.com/livcm/livcm.github.io/commits/main) [![Commit Activity](https://img.shields.io/github/commit-activity/w/livcm/livcm.github.io.svg?label=commit%20activity&style=for-the-badge)](https://github.com/livcm/livcm.github.io/commits/main)
-
-# Star History
-
-- [![Star History Chart](https://api.star-history.com/svg?repos=livcm/livcm.github.io&type=Date)](https://star-history.com/#livcm/livcm.github.io&Date)
-
-
-# License
-
-- [![CC BY-NC-ND 4.0 License](https://img.shields.io/badge/BY--NC--ND-4.0-orange.svg?logo=creativecommons)](http://creativecommons.org/licenses/by-nc-nd/4.0/) [![Anti 996 License](https://img.shields.io/badge/License-Anti_996-red.svg)](https://github.com/livcm/livcm.github.io/blob/main/LICENSE)
 
 ------
 
