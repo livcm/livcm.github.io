@@ -35,7 +35,3 @@ title: "Home"
 ## Feedback
 
 Open an issue on GitHub.
-
-## Link
-
-[996.icu](https://996.icu)
