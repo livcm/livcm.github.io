@@ -1,6 +1,6 @@
 ---
 layout: nohead
-title: "Everyday Genshin | livcm's Home"
+title: "Daily Genshin"
 ---
 
 ![Picture](https://image.anosu.top/pixiv/direct?keyword=genshinimpact)
