@@ -8,7 +8,7 @@ title: "Home"
 
 [![Stars](https://img.shields.io/github/stars/livcm/livcm.github.io.svg?style=for-the-badge&color=yellow)](https://github.com/livcm/livcm.github.io/stargazers) [![Last Commit](https://img.shields.io/github/last-commit/livcm/livcm.github.io.svg?style=for-the-badge)](https://github.com/livcm/livcm.github.io/commits/main) [![Commit Activity](https://img.shields.io/github/commit-activity/w/livcm/livcm.github.io.svg?label=commit%20activity&style=for-the-badge)](https://github.com/livcm/livcm.github.io/commits/main)
 
-<h2><div id="CurrentTime"></div></h1>
+<h2><div id="CurrentTime"></div></h2>
 
 ------
 
