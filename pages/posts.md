@@ -12,8 +12,6 @@
 
 ## License & Copyright
 
-[![LICENSE](https://img.shields.io/badge/BY--NC--ND-4.0-orange.svg?logo=creativecommons)](http://creativecommons.org/licenses/by-nc-nd/4.0/)
+[![LICENSE](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/)
 
-All posts of this blog are licensed under a [CC BY-NC-ND 4.0](http://creativecommons.org/licenses/by-nc-nd/4.0/) International License.
-
-Copyright &copy; 2022-2023 livcm. All Rights Reserved.
+All posts of this blog are licensed under a [Creative Commons Attribution-ShareAlike (CC BY-SA) 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
