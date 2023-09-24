@@ -30,3 +30,7 @@ title: "Home"
 ## Feedback
 
 Open an issue on GitHub.
+
+------
+
+**Powered by GitHub Pages and Jekyll.**
