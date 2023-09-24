@@ -33,4 +33,4 @@ Open an issue on GitHub.
 
 ------
 
-**Powered by GitHub Pages and Jekyll.**
+**Powered by GitHub Pages and Jekyll**
