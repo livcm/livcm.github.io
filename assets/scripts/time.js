@@ -12,6 +12,6 @@ function getCurrentTime(){
     var week=new Array("Sun","Mon","Tue","Wed","Thu","Fri","Sat")
     var month=new Array("Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Nov","Dec")
     var time=week[day]+", "+month[mm]+" "+dd+", "+yyyy+" at "+hh+":"+MM+":"+ss
-    var Tools=document.getElementById("CurrentTime")
-    Tools.innerHTML=time
+    var tools=document.getElementById("currentTime")
+    tools.innerHTML=time
 }
