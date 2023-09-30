@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
     {% include head-custom.html %}
-
-{% seo %}
+    {% seo %}
   </head>
   <body>
     <header>
@@ -21,8 +20,8 @@
         <a href="/pages/genshin" alt="Daily Genshin" class="btn">Daily Genshin</a>
         <a href="/pages/donate" alt="Donate" class="btn">Donate</a>
         <a href="{{ site.github.repository_url }}" alt="Source Code" class="btn btn-github"><span class="icon"></span>Source Code</a>
+      </div>
     </header>
-
     <div class="container">
       <section id="main_content">
         {{ content }}

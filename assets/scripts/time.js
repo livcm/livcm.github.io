@@ -2,7 +2,9 @@ window.onload=function(){
     window.requestAnimationFrame(getCurrentTime)
 }
 function getCurrentTime(){
-    window.setTimeout(function(){window.requestAnimationFrame(getCurrentTime)},1000/2)
+    window.setTimeout(function(){
+        window.requestAnimationFrame(getCurrentTime)
+    },1000/2)
     var date=new Date()
     var yyyy=date.getFullYear(),mm=date.getMonth(),dd=date.getDate(),day=date.getDay()
     var hh=date.getHours(),MM=date.getMinutes(),ss=date.getSeconds()

@@ -7,11 +7,10 @@
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
     <title>{{ page.title | default: site.title }}</title>
     {% include head-custom.html %}
-
-{% seo %}
+    {% seo %}
   </head>
   <body>
-    <br>
+    <br />
     <div class="container">
       <section id="main_content">
         {{ content }}
