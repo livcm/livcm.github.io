@@ -147,6 +147,6 @@ XIT Club QQ 群的头像和封面由 Public 群的热心成员设计。XIT Club 
 
 XIT Club 领导小组
 
-上次修改：2023年7月9日
+上次修改：2024年1月5日
 
-版权所有 &copy; 2022-2023 XIT Club。保留所有权利。
+版权所有 &copy; 2022-2024 XIT Club。保留所有权利。
