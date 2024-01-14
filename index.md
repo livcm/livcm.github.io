@@ -24,7 +24,9 @@ title: "Home"
 
 [![LICENSE](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/)
 
-All posts are licensed under a [Creative Commons Attribution-ShareAlike (CC BY-SA) 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
+All posts are licensed under a [CC BY-SA 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
+
+------
 
 ## Contact Me
 
@@ -32,8 +34,8 @@ All posts are licensed under a [Creative Commons Attribution-ShareAlike (CC BY-S
 
 ## My Game Account
 
-- Genshin Impact UID: 836010689 (Asia)
-- Honkai: Star Rail UID: 806085675 (Asia)
+- Genshin Impact UID: 836010689 (Asia Server)
+- Honkai: Star Rail UID: 806085675 (Asia Server)
 
 ## Feedback
 
