@@ -14,15 +14,12 @@ title: "Home"
 
 ## Contact Me
 
-- [![GitHub](https://img.shields.io/badge/GitHub-livcm-brightgreen.svg?style=social&logo=github)](https://github.com/livcm/)
-- [![Twitter / X](https://img.shields.io/badge/Twitter%20/%20X-@livcm23333-blue.svg?style=social&logo=twitter)](https://twitter.com/livcm23333)
+[![GitHub](https://img.shields.io/badge/GitHub-livcm-brightgreen.svg?style=social&logo=github)](https://github.com/livcm/) [![Twitter / X](https://img.shields.io/badge/Twitter%20/%20X-@livcm23333-blue.svg?style=social&logo=twitter)](https://twitter.com/livcm23333)
 
 ## My Game Account
 
-- Genshin Impact UID
-  - 836010689 (Asia)
-- Honkai: Star Rail UID
-  - 806085675 (Asia)
+- Genshin Impact UID: 836010689 (Asia)
+- Honkai: Star Rail UID: 806085675 (Asia)
 
 ## Feedback
 
