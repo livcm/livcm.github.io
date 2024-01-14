@@ -9,6 +9,7 @@ layout: default
 <small>
   {{ page.date | date: "%B %-d, %Y at %H:%M" }}, By {{ page.author | default: site.author }}
 </small>
+<a href="http://creativecommons.org/licenses/by-sa/4.0/" alt="License"><img src="https://img.shields.io/badge/CC%20BY--SA-4.0-EF9421.svg?style=plastic"></a>
 
 {{content}}
 
@@ -22,5 +23,3 @@ layout: default
   tags: <em>{{ page.tags | join: "</em> / <em>" }}</em>
 {% endif %}
 </small>
-
-<p>This post is licensed under <a href="http://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</p>
