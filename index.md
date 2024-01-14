@@ -22,7 +22,7 @@ title: "Home"
   {% endfor %}
 </ul>
 
-All posts are licensed under [CC BY-SA 4.0](http://creativecommons.org/licenses/by-sa/4.0/).
+[![License](https://img.shields.io/badge/CC%20BY--SA-4.0-EF9421.svg?style=for-the-badge)](http://creativecommons.org/licenses/by-sa/4.0/)
 
 ------
 
