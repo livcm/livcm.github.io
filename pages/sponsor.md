@@ -1,4 +1,4 @@
-# Donate
+# Sponsor
 
 Every support will be remembered.
 

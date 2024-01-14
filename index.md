@@ -12,6 +12,20 @@ title: "Home"
 
 ------
 
+## Posts
+
+<ul>
+  {% for post in site.posts %}
+    <li>
+       <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+    </li>
+  {% endfor %}
+</ul>
+
+[![LICENSE](https://i.creativecommons.org/l/by-sa/4.0/88x31.png)](http://creativecommons.org/licenses/by-sa/4.0/)
+
+All posts are licensed under a [Creative Commons Attribution-ShareAlike (CC BY-SA) 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).
+
 ## Contact Me
 
 [![GitHub](https://img.shields.io/badge/GitHub-livcm-brightgreen.svg?style=social&logo=github)](https://github.com/livcm/) [![Twitter / X](https://img.shields.io/badge/Twitter%20/%20X-@livcm23333-blue.svg?style=social&logo=twitter)](https://twitter.com/livcm23333)
