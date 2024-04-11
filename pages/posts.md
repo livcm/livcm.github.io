@@ -8,4 +8,4 @@
   {% endfor %}
 </ul>
 
-[![License](https://img.shields.io/badge/CC%20BY--SA-4.0-EF9421.svg?style=for-the-badge)](http://creativecommons.org/licenses/by-sa/4.0/)
+[![License](https://img.shields.io/badge/BY--SA-4.0-EF9421.svg?style=for-the-badge&logo=creativecommons&logoColor=white)](http://creativecommons.org/licenses/by-sa/4.0/)
