@@ -14,8 +14,9 @@ title: "Home"
 
 ## Contact Me
 
-- [![GitHub](https://img.shields.io/badge/GitHub-livcm-brightgreen.svg?style=social&logo=github)](https://github.com/livcm/)
-- [![Twitter / X](https://img.shields.io/badge/Twitter%20/%20X-@livcm23333-blue.svg?style=social&logo=twitter)](https://twitter.com/livcm23333)
+- [![GitHub](https://img.shields.io/badge/GitHub-livcm-brightgreen?style=social&logo=github)](https://github.com/livcm/)
+- [![X (Twitter)](https://img.shields.io/badge/X%20%28Twitter%29-@livcm23333-blue?style=social&logo=x)](https://twitter.com/livcm23333)
+- [![Instagram](https://img.shields.io/badge/Instagram-@livcm23333-blue?style=social&logo=instagram)](https://www.instagram.com/livcm23333/)
 
 ## My Game Account
 
@@ -23,6 +24,8 @@ title: "Home"
   - 836010689 (Asia Server)
 - Honkai: Star Rail UID
   - 806085675 (Asia Server)
+- Zenless Zone Zero UID
+  - 1303488761 (Asia Server)
 
 ## Feedback
 
