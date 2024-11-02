@@ -32,7 +32,7 @@ title: "Home"
 
 ## Feedback
 
-[Create an issue](https://github.com/livcm/livcm.github.io/issues) on GitHub.
+[Create an issue](https://github.com/livcm/livcm.github.io/issues/new) on GitHub. I will check it if I am available.
 
 ------
 
