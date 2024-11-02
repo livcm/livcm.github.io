@@ -19,7 +19,7 @@ title: "Home"
 - [![GitHub](https://img.shields.io/badge/GitHub-livcm-181717?style=social&logo=github)](https://github.com/livcm/)
 - [![X (Twitter)](https://img.shields.io/badge/X%20%28Twitter%29-@livcm23333-000000?style=social&logo=x)](https://twitter.com/livcm23333)
 - [![Instagram](https://img.shields.io/badge/Instagram-livcm23333-E4405F?style=social&logo=instagram)](https://www.instagram.com/livcm23333/)
-
+- ![Gmail](https://img.shields.io/badge/Gmail-livcm23333@gmail.com-blue?style=social&logo=gmail)
 
 ## My Game Account
 
