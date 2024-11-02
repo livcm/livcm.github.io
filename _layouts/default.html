@@ -9,7 +9,6 @@
     {% seo %}
   </head>
   <body>
-    <header>
       <div class="container">
         <a id="a-title" alt="Back to Home" href="{{ '/' | relative_url }}">
           <h1>{{ site.title | default: site.github.repository_name }}</h1>
@@ -21,7 +20,6 @@
         <!--<a href="/pages/sponsor" alt="sponsor" class="btn">Sponsor</a>-->
         <a href="{{ site.github.repository_url }}" alt="Source Code" class="btn btn-github"><span class="icon"></span>Source Code</a>
       </div>
-    </header>
     <div class="container">
       <section id="main_content">
         {{ content }}
