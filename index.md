@@ -36,6 +36,6 @@ title: "Home"
 
 ------
 
-**Created on Nov 12, 2022**
+**Created on November 12th, 2022**
 
 **Powered by GitHub Pages and Jekyll**
