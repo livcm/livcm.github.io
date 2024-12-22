@@ -1,1 +1,0 @@
-![Social preview](assets/imgs/social-preview.png)
