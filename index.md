@@ -23,12 +23,16 @@ title: "Home"
 
 ## My Game Account
 
+- Arknights
+  - Rainbowmxx#6081 (Hypergraph)
 - Genshin Impact UID
-  - 836010689 (Asia Server)
+  - 312807955 (天空岛)
+  - 836010689 (Asia)
 - Honkai: Star Rail UID
-  - 806085675 (Asia Server)
+  - 806085675 (Asia)
 - Zenless Zone Zero UID
-  - 1303488761 (Asia Server)
+  - 1303488761 (Asia)
+
 
 ## Feedback
 
