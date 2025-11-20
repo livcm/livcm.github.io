@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>扫雷</title>
+    <style>
+        /* --- CSS 变量系统 --- */
+        :root {
+            --bg-page: #c0c0c0;
+            --bg-surface: #c0c0c0;
+            --bg-revealed: #dcdcdc;
+            --border-light: #ffffff;
+            --border-dark: #7b7b7b;
+            --text-main: #333333;
+            --flag-color: #000000;
+            --input-bg: #ffffff;
+            
+            --num-1: blue;
+            --num-2: green;
+            --num-3: red;
+            --num-4: darkblue;
+            --num-5: brown;
+            --num-6: cyan;
+            --num-7: black;
+            --num-8: gray;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg-page: #121212;
+                --bg-surface: #2d2d2d;
+                --bg-revealed: #1a1a1a;
+                --border-light: #4a4a4a;
+                --border-dark: #000000;
+                --text-main: #e0e0e0;
+                --flag-color: #ffffff;
+                --input-bg: #3d3d3d;
+
+                --num-1: #5c9aff;
+                --num-2: #66cc66;
+                --num-3: #ff5555;
+                --num-4: #aaaaff;
+                --num-5: #ffcc66;
+                --num-6: #33ffff;
+                --num-7: #dddddd;
+                --num-8: #888888;
+            }
+        }
+
+        html {
+            height: 100%;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-page);
+            color: var(--text-main);
+            margin: 0;
+            padding: 20px 0;
+            /* 允许 body 宽度随内容撑开，解决大地图边框消失问题 */
+            width: fit-content;
+            min-width: 100%; 
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            user-select: none;
+            -webkit-user-select: none;
+            -webkit-touch-callout: none;
+        }
+
+        h1 { margin: 5px 0 15px; font-size: 28px; text-align: center; }
+
+        /* 控制区域 */
+        .controls-area {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 10px;
+            align-items: center;
+            width: 100%; 
+        }
+
+        .btn-group { display: flex; gap: 5px; flex-wrap: wrap; justify-content: center; }
+
+        .custom-group {
+            display: none; 
+            gap: 5px;
+            align-items: center;
+            background: var(--bg-surface);
+            padding: 5px;
+            border: 2px solid var(--border-dark);
+            border-right-color: var(--border-light);
+            border-bottom-color: var(--border-light);
+        }
+        
+        .custom-group.show { display: flex; }
+
+        button {
+            font-family: inherit;
+            background: var(--bg-surface);
+            border: 2px solid var(--border-light);
+            border-right-color: var(--border-dark);
+            border-bottom-color: var(--border-dark);
+            color: var(--text-main);
+            cursor: pointer;
+            padding: 5px 10px;
+            font-weight: bold;
+            font-size: 14px;
+            white-space: nowrap;
+        }
+
+        button:active { border-style: inset; }
+        button.active { background-color: var(--bg-revealed); border-style: inset; }
+
+        input {
+            width: 40px;
+            background: var(--input-bg);
+            color: var(--text-main);
+            border: 1px solid var(--border-dark);
+            text-align: center;
+        }
+        label { font-size: 12px; }
+
+        .game-container {
+            background-color: var(--bg-surface);
+            padding: 10px;
+            border: 3px solid var(--border-light);
+            border-right-color: var(--border-dark);
+            border-bottom-color: var(--border-dark);
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+            
+            display: inline-block; 
+            vertical-align: top;
+            margin: 0 auto; 
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--bg-surface);
+            border: 2px solid var(--border-dark);
+            border-right-color: var(--border-light);
+            border-bottom-color: var(--border-light);
+            padding: 5px 10px;
+            margin-bottom: 10px;
+            min-width: 150px;
+        }
+
+        .counter {
+            background: black;
+            color: red;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 24px;
+            padding: 2px 5px;
+            border: 1px solid var(--border-dark);
+            width: 70px; 
+            text-align: center;
+        }
+
+        .face-btn {
+            width: 40px;
+            height: 40px;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            border: 2px solid var(--border-light);
+            border-right-color: var(--border-dark);
+            border-bottom-color: var(--border-dark);
+            background-color: var(--bg-surface);
+        }
+        .face-btn:active { border-style: inset; }
+
+        #grid {
+            display: grid;
+            border: 3px solid var(--border-dark);
+            border-right-color: var(--border-light);
+            border-bottom-color: var(--border-light);
+            touch-action: none;
+        }
+
+        .cell {
+            width: 30px;
+            height: 30px;
+            box-sizing: border-box;
+            border: 2px solid var(--border-light);
+            border-right-color: var(--border-dark);
+            border-bottom-color: var(--border-dark);
+            background-color: var(--bg-surface);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 18px;
+            cursor: pointer;
+            color: var(--flag-color);
+            transition: background-color 0.1s, box-shadow 0.1s;
+        }
+
+        @media (hover: hover) { 
+            .cell:not(.revealed):hover {
+                background-color: rgba(255, 255, 255, 0.2); 
+                background-blend-mode: lighten;
+                box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.3); 
+                z-index: 1;
+            }
+        }
+
+        .cell.revealed {
+            border: 1px solid var(--border-dark);
+            background-color: var(--bg-revealed);
+            cursor: default;
+            box-shadow: none;
+        }
+
+        @keyframes flash-white {
+            0% { background-color: var(--bg-surface); }
+            50% { background-color: #ffffff; }
+            100% { background-color: var(--bg-surface); }
+        }
+        .cell.flash { animation: flash-white 0.2s ease-in-out; }
+
+        .cell.mine { background-color: #cc0000 !important; border-color: var(--border-dark); }
+        .cell.wrong-flag { background-color: rgba(255, 0, 0, 0.3); text-decoration: line-through; }
+
+        .num-1 { color: var(--num-1); }
+        .num-2 { color: var(--num-2); }
+        .num-3 { color: var(--num-3); }
+        .num-4 { color: var(--num-4); }
+        .num-5 { color: var(--num-5); }
+        .num-6 { color: var(--num-6); }
+        .num-7 { color: var(--num-7); }
+        .num-8 { color: var(--num-8); }
+
+    </style>
+</head>
+<body>
+
+    <h1>扫雷</h1>
+
+    <div class="controls-area">
+        <div class="btn-group">
+            <button onclick="setDifficulty('easy')" id="btn-easy">初级</button>
+            <button onclick="setDifficulty('medium')" id="btn-medium">中级</button>
+            <button onclick="setDifficulty('hard')" id="btn-hard">高级</button>
+            <button onclick="setFullScreen()" id="btn-full">满屏</button>
+            <button onclick="enableCustomMode()" id="btn-custom">自定义</button>
+        </div>
+        <div class="custom-group" id="custom-panel">
+            <label>行:</label><input type="number" id="custom-rows" value="20" min="5" max="200">
+            <label>列:</label><input type="number" id="custom-cols" value="20" min="5" max="200">
+            <label>雷:</label><input type="number" id="custom-mines" value="50" min="1">
+            <button onclick="applyCustom()">开始</button>
+        </div>
+    </div>
+
+    <div class="game-container">
+        <div class="header">
+            <div id="mine-count" class="counter">010</div>
+            <div id="reset-btn" class="face-btn">😊</div>
+            <div id="timer" class="counter">000</div>
+        </div>
+        <div id="grid"></div>
+    </div>
+
+    <p>Generated by Gemini 3</p>
+
+    <script>
+        const gridElement = document.getElementById('grid');
+        const mineCountElement = document.getElementById('mine-count');
+        const resetBtn = document.getElementById('reset-btn');
+        const timerElement = document.getElementById('timer');
+        const customPanel = document.getElementById('custom-panel');
+        
+        let currentRows = 10;
+        let currentCols = 10;
+        let currentMines = 10;
+        
+        let grid = [];
+        let flagsLeft = 0;
+        let isGameOver = false;
+        let revealedCount = 0;
+        let isFirstClick = true;
+        
+        let startTime = 0;
+        let timerInterval = null;
+        let longPressTimer = null;
+        let isLongPressHandled = false;
+
+        const PRESETS = {
+            easy: { r: 9, c: 9, m: 10 },
+            medium: { r: 16, c: 16, m: 40 },
+            hard: { r: 16, c: 30, m: 99 }
+        };
+
+        function setDifficulty(level) {
+            const p = PRESETS[level];
+            currentRows = p.r;
+            currentCols = p.c;
+            currentMines = p.m;
+            
+            customPanel.classList.remove('show');
+            updateActiveButton(`btn-${level}`);
+            initGame();
+        }
+
+        function setFullScreen() {
+            customPanel.classList.remove('show');
+            updateActiveButton('btn-full');
+
+            const availableHeight = window.innerHeight - 200; 
+            const availableWidth = window.innerWidth - 40; 
+
+            let cols = Math.floor(availableWidth / 30);
+            let rows = Math.floor(availableHeight / 30);
+
+            cols = Math.max(9, cols);
+            rows = Math.max(9, rows);
+
+            let mines = Math.floor(rows * cols * 0.2);
+
+            currentRows = rows;
+            currentCols = cols;
+            currentMines = mines;
+
+            initGame();
+        }
+
+        function enableCustomMode() {
+            updateActiveButton('btn-custom');
+            customPanel.classList.add('show');
+        }
+        
+        function updateActiveButton(id) {
+            document.querySelectorAll('.btn-group button').forEach(b => b.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+        }
+
+        function applyCustom() {
+            const r = parseInt(document.getElementById('custom-rows').value);
+            const c = parseInt(document.getElementById('custom-cols').value);
+            let m = parseInt(document.getElementById('custom-mines').value);
+
+            if(isNaN(r) || r < 5) return alert("行数太少 (最少5)");
+            if(isNaN(c) || c < 5) return alert("列数太少 (最少5)");
+            
+            const maxMines = (r * c) - 9;
+            if(isNaN(m) || m < 1) m = 1;
+            if(m > maxMines) {
+                m = maxMines;
+                alert(`为了保证首发不炸，雷数最多调整为 ${maxMines}`);
+            }
+            document.getElementById('custom-mines').value = m;
+
+            currentRows = r;
+            currentCols = c;
+            currentMines = m;
+            initGame();
+        }
+
+        function initGame() {
+            stopTimer(false);
+            gridElement.innerHTML = '';
+            grid = [];
+            flagsLeft = currentMines;
+            isGameOver = false;
+            revealedCount = 0;
+            isFirstClick = true;
+            
+            mineCountElement.innerText = formatNumber(flagsLeft);
+            timerElement.innerText = '000';
+            resetBtn.innerText = '😊';
+
+            gridElement.style.gridTemplateColumns = `repeat(${currentCols}, 30px)`;
+            gridElement.style.gridTemplateRows = `repeat(${currentRows}, 30px)`;
+            
+            for (let r = 0; r < currentRows; r++) {
+                const row = [];
+                for (let c = 0; c < currentCols; c++) {
+                    const cellElement = document.createElement('div');
+                    cellElement.classList.add('cell');
+                    cellElement.dataset.row = r;
+                    cellElement.dataset.col = c;
+                    
+                    cellElement.addEventListener('mouseup', (e) => {
+                        if (e.button === 0) handleInput(r, c, 'reveal');
+                    });
+                    cellElement.addEventListener('contextmenu', (e) => {
+                        e.preventDefault();
+                        handleInput(r, c, 'flag');
+                    });
+                    cellElement.addEventListener('touchstart', (e) => {
+                        if(e.cancelable) e.preventDefault(); 
+                        isLongPressHandled = false;
+                        longPressTimer = setTimeout(() => {
+                            handleInput(r, c, 'flag');
+                            isLongPressHandled = true;
+                            if (navigator.vibrate) navigator.vibrate(50); 
+                        }, 400);
+                    }, { passive: false });
+                    cellElement.addEventListener('touchend', (e) => {
+                        clearTimeout(longPressTimer);
+                        if (!isLongPressHandled) handleInput(r, c, 'reveal');
+                    });
+                    cellElement.addEventListener('touchmove', () => {
+                         clearTimeout(longPressTimer);
+                         isLongPressHandled = true; 
+                    });
+
+                    gridElement.appendChild(cellElement);
+
+                    row.push({
+                        element: cellElement,
+                        isMine: false,
+                        isRevealed: false,
+                        isFlagged: false,
+                        neighborMines: 0
+                    });
+                }
+                grid.push(row);
+            }
+        }
+
+        function startTimer() {
+            startTime = Date.now();
+            timerInterval = setInterval(() => {
+                const now = Date.now();
+                const seconds = Math.floor((now - startTime) / 1000);
+                timerElement.innerText = Math.min(seconds, 999).toString().padStart(3, '0');
+            }, 100);
+        }
+
+        function stopTimer(isWin) {
+            if (timerInterval) {
+                clearInterval(timerInterval);
+                timerInterval = null;
+            }
+            if (isWin && startTime > 0) {
+                const elapsed = (Date.now() - startTime) / 1000;
+                timerElement.innerText = elapsed.toFixed(1);
+            }
+        }
+
+        function handleInput(r, c, action) {
+            if (isGameOver) return;
+            const cell = grid[r][c];
+
+            if (action === 'flag') {
+                if (cell.isRevealed) {
+                    attemptChording(r, c);
+                    return;
+                }
+                toggleFlag(cell);
+            } 
+            else if (action === 'reveal') {
+                if (cell.isFlagged) return;
+                
+                if (cell.isRevealed) {
+                    attemptChording(r, c);
+                    return;
+                }
+
+                if (isFirstClick) {
+                    isFirstClick = false;
+                    startTimer();
+                    placeMines(r, c);
+                    calculateNumbers();
+                }
+
+                if (cell.isMine) {
+                    gameOver(false);
+                } else {
+                    revealCell(r, c);
+                    checkWin();
+                }
+            }
+        }
+
+        function attemptChording(r, c) {
+            const cell = grid[r][c];
+            if (cell.neighborMines === 0) return; 
+
+            let flagCount = 0;
+            const neighbors = getNeighbors(r, c);
+            neighbors.forEach(n => {
+                if (grid[n.r][n.c].isFlagged) flagCount++;
+            });
+
+            if (flagCount !== cell.neighborMines) {
+                neighbors.forEach(n => {
+                    const neighborCell = grid[n.r][n.c];
+                    if (!neighborCell.isRevealed && !neighborCell.isFlagged) {
+                        neighborCell.element.classList.add('flash');
+                        setTimeout(() => neighborCell.element.classList.remove('flash'), 200);
+                    }
+                });
+                return;
+            }
+
+            let hitMine = false;
+            neighbors.forEach(n => {
+                const target = grid[n.r][n.c];
+                if (!target.isRevealed && !target.isFlagged) {
+                    if (target.isMine) {
+                        hitMine = true;
+                        target.element.classList.add('mine'); 
+                    } else {
+                        revealCell(n.r, n.c);
+                    }
+                }
+            });
+
+            if (hitMine) gameOver(false);
+            else checkWin();
+        }
+
+        function getNeighbors(r, c) {
+            const arr = [];
+            for (let i = -1; i <= 1; i++) {
+                for (let j = -1; j <= 1; j++) {
+                    const nr = r + i;
+                    const nc = c + j;
+                    if (nr >= 0 && nr < currentRows && nc >= 0 && nc < currentCols) {
+                        arr.push({r: nr, c: nc});
+                    }
+                }
+            }
+            return arr;
+        }
+
+        function toggleFlag(cell) {
+            if (cell.isFlagged) {
+                cell.isFlagged = false;
+                cell.element.innerText = '';
+                flagsLeft++;
+            } else {
+                if (flagsLeft > 0) {
+                    cell.isFlagged = true;
+                    cell.element.innerText = '🚩';
+                    flagsLeft--;
+                }
+            }
+            mineCountElement.innerText = formatNumber(flagsLeft);
+        }
+
+        function placeMines(safeRow, safeCol) {
+            let minesPlaced = 0;
+            while (minesPlaced < currentMines) {
+                const r = Math.floor(Math.random() * currentRows);
+                const c = Math.floor(Math.random() * currentCols);
+                
+                const distR = Math.abs(r - safeRow);
+                const distC = Math.abs(c - safeCol);
+
+                if (distR <= 1 && distC <= 1) continue;
+
+                if (!grid[r][c].isMine) {
+                    grid[r][c].isMine = true;
+                    minesPlaced++;
+                }
+            }
+        }
+
+        function calculateNumbers() {
+            for (let r = 0; r < currentRows; r++) {
+                for (let c = 0; c < currentCols; c++) {
+                    if (grid[r][c].isMine) continue;
+                    let count = 0;
+                    getNeighbors(r, c).forEach(n => {
+                        if (grid[n.r][n.c].isMine) count++;
+                    });
+                    grid[r][c].neighborMines = count;
+                }
+            }
+        }
+
+        function revealCell(r, c) {
+            if (r < 0 || r >= currentRows || c < 0 || c >= currentCols) return;
+            const cell = grid[r][c];
+            if (cell.isRevealed || cell.isFlagged) return;
+
+            cell.isRevealed = true;
+            cell.element.classList.add('revealed');
+            revealedCount++;
+
+            if (cell.neighborMines > 0) {
+                cell.element.innerText = cell.neighborMines;
+                cell.element.classList.add(`num-${cell.neighborMines}`);
+            } else {
+                getNeighbors(r, c).forEach(n => {
+                    revealCell(n.r, n.c);
+                });
+            }
+        }
+
+        function gameOver(isWin) {
+            isGameOver = true;
+            stopTimer(isWin);
+            resetBtn.innerText = isWin ? '😎' : '😵';
+            
+            if (!isWin) {
+                if (navigator.vibrate) navigator.vibrate([200, 100, 200]);
+                grid.forEach(row => {
+                    row.forEach(cell => {
+                        if (cell.isMine) {
+                            cell.element.innerText = '💣';
+                            cell.element.classList.add('revealed', 'mine');
+                        } else if (cell.isFlagged && !cell.isMine) {
+                            cell.element.innerText = '❌'; 
+                            cell.element.classList.add('wrong-flag');
+                        }
+                    });
+                });
+            } else {
+                // 这里已经移除了 alert 弹窗
+            }
+        }
+
+        function checkWin() {
+            if (revealedCount + currentMines === currentRows * currentCols) {
+                for (let r = 0; r < currentRows; r++) {
+                    for (let c = 0; c < currentCols; c++) {
+                        const cell = grid[r][c];
+                        if (!cell.isRevealed && !cell.isFlagged) {
+                            cell.isFlagged = true;
+                            cell.element.innerText = '🚩';
+                        }
+                    }
+                }
+                mineCountElement.innerText = formatNumber(currentMines);
+                gameOver(true);
+            }
+        }
+
+        function formatNumber(num) {
+            if (num < 0) return '000';
+            return num.toString().padStart(3, '0');
+        }
+
+        resetBtn.addEventListener('click', initGame);
+        setDifficulty('easy');
+
+    </script>
+</body>
+</html>
