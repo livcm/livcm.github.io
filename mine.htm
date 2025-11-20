@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>扫雷</title>
     <style>
-        /* --- CSS 变量系统 --- */
         :root {
             --bg-page: #c0c0c0;
             --bg-surface: #c0c0c0;
@@ -15,7 +14,6 @@
             --text-main: #333333;
             --flag-color: #000000;
             --input-bg: #ffffff;
-            
             --num-1: blue;
             --num-2: green;
             --num-3: red;
@@ -24,8 +22,8 @@
             --num-6: cyan;
             --num-7: black;
             --num-8: gray;
+            --cursor-color: #FFD700;
         }
-
         @media (prefers-color-scheme: dark) {
             :root {
                 --bg-page: #121212;
@@ -36,7 +34,6 @@
                 --text-main: #e0e0e0;
                 --flag-color: #ffffff;
                 --input-bg: #3d3d3d;
-
                 --num-1: #5c9aff;
                 --num-2: #66cc66;
                 --num-3: #ff5555;
@@ -47,18 +44,51 @@
                 --num-8: #888888;
             }
         }
-
+        html.dark-theme {
+            --bg-page: #121212;
+            --bg-surface: #2d2d2d;
+            --bg-revealed: #1a1a1a;
+            --border-light: #4a4a4a;
+            --border-dark: #000000;
+            --text-main: #e0e0e0;
+            --flag-color: #ffffff;
+            --input-bg: #3d3d3d;
+            --num-1: #5c9aff;
+            --num-2: #66cc66;
+            --num-3: #ff5555;
+            --num-4: #aaaaff;
+            --num-5: #ffcc66;
+            --num-6: #33ffff;
+            --num-7: #dddddd;
+            --num-8: #888888;
+        }
+        html.light-theme {
+            --bg-page: #c0c0c0;
+            --bg-surface: #c0c0c0;
+            --bg-revealed: #dcdcdc;
+            --border-light: #ffffff;
+            --border-dark: #7b7b7b;
+            --text-main: #333333;
+            --flag-color: #000000;
+            --input-bg: #ffffff;
+            --num-1: blue;
+            --num-2: green;
+            --num-3: red;
+            --num-4: darkblue;
+            --num-5: brown;
+            --num-6: cyan;
+            --num-7: black;
+            --num-8: gray;
+        }
         html {
             height: 100%;
         }
-
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: var(--bg-page);
             color: var(--text-main);
             margin: 0;
             padding: 20px 0;
-            /* 允许 body 宽度随内容撑开，解决大地图边框消失问题 */
             width: fit-content;
             min-width: 100%; 
             min-height: 100%;
@@ -68,22 +98,21 @@
             user-select: none;
             -webkit-user-select: none;
             -webkit-touch-callout: none;
+            transition: background-color 0.3s, color 0.3s; 
         }
-
         h1 { margin: 5px 0 15px; font-size: 28px; text-align: center; }
-
-        /* 控制区域 */
         .controls-area {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 8px;
             margin-bottom: 10px;
             align-items: center;
             width: 100%; 
         }
-
         .btn-group { display: flex; gap: 5px; flex-wrap: wrap; justify-content: center; }
-
+        .theme-toggles {
+            margin-top: 10px;
+        }
         .custom-group {
             display: none; 
             gap: 5px;
@@ -94,9 +123,7 @@
             border-right-color: var(--border-light);
             border-bottom-color: var(--border-light);
         }
-        
         .custom-group.show { display: flex; }
-
         button {
             font-family: inherit;
             background: var(--bg-surface);
@@ -110,10 +137,8 @@
             font-size: 14px;
             white-space: nowrap;
         }
-
         button:active { border-style: inset; }
         button.active { background-color: var(--bg-revealed); border-style: inset; }
-
         input {
             width: 40px;
             background: var(--input-bg);
@@ -122,7 +147,6 @@
             text-align: center;
         }
         label { font-size: 12px; }
-
         .game-container {
             background-color: var(--bg-surface);
             padding: 10px;
@@ -135,7 +159,6 @@
             vertical-align: top;
             margin: 0 auto; 
         }
-
         .header {
             display: flex;
             justify-content: space-between;
@@ -148,7 +171,6 @@
             margin-bottom: 10px;
             min-width: 150px;
         }
-
         .counter {
             background: black;
             color: red;
@@ -159,7 +181,6 @@
             width: 70px; 
             text-align: center;
         }
-
         .face-btn {
             width: 40px;
             height: 40px;
@@ -174,15 +195,13 @@
             background-color: var(--bg-surface);
         }
         .face-btn:active { border-style: inset; }
-
         #grid {
             display: grid;
             border: 3px solid var(--border-dark);
             border-right-color: var(--border-light);
             border-bottom-color: var(--border-light);
-            touch-action: none;
+            touch-action: manipulation;
         }
-
         .cell {
             width: 30px;
             height: 30px;
@@ -198,35 +217,37 @@
             font-size: 18px;
             cursor: pointer;
             color: var(--flag-color);
-            transition: background-color 0.1s, box-shadow 0.1s;
+            transition: background-color 0.1s, box-shadow 0.1s, transform 0.1s;
+            -webkit-touch-callout: none;
         }
-
+        .cell.cursor {
+            border: 3px solid var(--cursor-color) !important;
+            z-index: 10;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+            transform: scale(1.15);
+        }
         @media (hover: hover) { 
-            .cell:not(.revealed):hover {
+            body:not(.keyboard-mode) .cell:not(.revealed):hover {
                 background-color: rgba(255, 255, 255, 0.2); 
                 background-blend-mode: lighten;
                 box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.3); 
                 z-index: 1;
             }
         }
-
         .cell.revealed {
             border: 1px solid var(--border-dark);
             background-color: var(--bg-revealed);
             cursor: default;
             box-shadow: none;
         }
-
         @keyframes flash-white {
             0% { background-color: var(--bg-surface); }
             50% { background-color: #ffffff; }
             100% { background-color: var(--bg-surface); }
         }
         .cell.flash { animation: flash-white 0.2s ease-in-out; }
-
         .cell.mine { background-color: #cc0000 !important; border-color: var(--border-dark); }
         .cell.wrong-flag { background-color: rgba(255, 0, 0, 0.3); text-decoration: line-through; }
-
         .num-1 { color: var(--num-1); }
         .num-2 { color: var(--num-2); }
         .num-3 { color: var(--num-3); }
@@ -235,13 +256,10 @@
         .num-6 { color: var(--num-6); }
         .num-7 { color: var(--num-7); }
         .num-8 { color: var(--num-8); }
-
     </style>
 </head>
 <body>
-
     <h1>扫雷</h1>
-
     <div class="controls-area">
         <div class="btn-group">
             <button onclick="setDifficulty('easy')" id="btn-easy">初级</button>
@@ -257,7 +275,6 @@
             <button onclick="applyCustom()">开始</button>
         </div>
     </div>
-
     <div class="game-container">
         <div class="header">
             <div id="mine-count" class="counter">010</div>
@@ -266,88 +283,127 @@
         </div>
         <div id="grid"></div>
     </div>
-
+    <div class="btn-group theme-toggles">
+        <button onclick="setTheme('auto')" id="theme-auto" class="active">跟随系统</button>
+        <button onclick="setTheme('light')" id="theme-light">浅色</button>
+        <button onclick="setTheme('dark')" id="theme-dark">深色</button>
+    </div>
     <p>Generated by Gemini 3</p>
-
     <script>
         const gridElement = document.getElementById('grid');
         const mineCountElement = document.getElementById('mine-count');
         const resetBtn = document.getElementById('reset-btn');
         const timerElement = document.getElementById('timer');
         const customPanel = document.getElementById('custom-panel');
-        
         let currentRows = 10;
         let currentCols = 10;
         let currentMines = 10;
-        
         let grid = [];
         let flagsLeft = 0;
         let isGameOver = false;
         let revealedCount = 0;
         let isFirstClick = true;
-        
         let startTime = 0;
         let timerInterval = null;
         let longPressTimer = null;
         let isLongPressHandled = false;
-
+        let touchStartX = 0;
+        let touchStartY = 0;
+        let isScrolling = false;
+        let isKeyboardMode = false;
+        let cursorRow = 0;
+        let cursorCol = 0;
+        let currentDifficultyStr = 'easy';
+        let currentThemeStr = 'auto';
         const PRESETS = {
             easy: { r: 9, c: 9, m: 10 },
             medium: { r: 16, c: 16, m: 40 },
             hard: { r: 16, c: 30, m: 99 }
         };
-
+        function setTheme(theme) {
+            currentThemeStr = theme;
+            const html = document.documentElement;
+            html.classList.remove('light-theme', 'dark-theme');
+            document.querySelectorAll('.theme-toggles button').forEach(btn => btn.classList.remove('active'));
+            document.getElementById(`theme-${theme}`).classList.add('active');
+            if (theme === 'light') html.classList.add('light-theme');
+            else if (theme === 'dark') html.classList.add('dark-theme');
+        }
+        function cycleTheme() {
+            const themes = ['auto', 'light', 'dark'];
+            let idx = themes.indexOf(currentThemeStr);
+            idx = (idx + 1) % themes.length;
+            setTheme(themes[idx]);
+        }
         function setDifficulty(level) {
-            const p = PRESETS[level];
-            currentRows = p.r;
-            currentCols = p.c;
-            currentMines = p.m;
+            if (PRESETS[level]) {
+                const p = PRESETS[level];
+                currentRows = p.r;
+                currentCols = p.c;
+                currentMines = p.m;
+            }
+            currentDifficultyStr = level;
             
             customPanel.classList.remove('show');
             updateActiveButton(`btn-${level}`);
             initGame();
         }
-
+        function cycleDifficulty() {
+            const levels = ['easy', 'medium', 'hard', 'full'];
+            let idx = levels.indexOf(currentDifficultyStr);
+            if (idx === -1) idx = 0; 
+            else idx = (idx + 1) % levels.length;
+            const nextLevel = levels[idx];
+            if (nextLevel === 'full') {
+                setFullScreen();
+            } else {
+                setDifficulty(nextLevel);
+            }
+        }
         function setFullScreen() {
+            currentDifficultyStr = 'full';
             customPanel.classList.remove('show');
             updateActiveButton('btn-full');
-
-            const availableHeight = window.innerHeight - 200; 
+            const availableHeight = window.innerHeight - 230; 
             const availableWidth = window.innerWidth - 40; 
-
             let cols = Math.floor(availableWidth / 30);
             let rows = Math.floor(availableHeight / 30);
-
             cols = Math.max(9, cols);
             rows = Math.max(9, rows);
-
             let mines = Math.floor(rows * cols * 0.2);
-
             currentRows = rows;
             currentCols = cols;
             currentMines = mines;
-
             initGame();
         }
-
+        function toggleBrowserFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => {
+                    console.log(`Error attempting to enable full-screen mode: ${err.message}`);
+                });
+            } else {
+                if (document.exitFullscreen) {
+                    document.exitFullscreen();
+                }
+            }
+        }
         function enableCustomMode() {
+            currentDifficultyStr = 'custom';
             updateActiveButton('btn-custom');
             customPanel.classList.add('show');
         }
-        
         function updateActiveButton(id) {
-            document.querySelectorAll('.btn-group button').forEach(b => b.classList.remove('active'));
+            const group = document.getElementById(id).parentElement;
+            if (group.classList.contains('theme-toggles')) return;
+            group.querySelectorAll('button').forEach(b => b.classList.remove('active'));
             document.getElementById(id).classList.add('active');
         }
-
         function applyCustom() {
             const r = parseInt(document.getElementById('custom-rows').value);
             const c = parseInt(document.getElementById('custom-cols').value);
             let m = parseInt(document.getElementById('custom-mines').value);
-
             if(isNaN(r) || r < 5) return alert("行数太少 (最少5)");
             if(isNaN(c) || c < 5) return alert("列数太少 (最少5)");
-            
             const maxMines = (r * c) - 9;
             if(isNaN(m) || m < 1) m = 1;
             if(m > maxMines) {
@@ -355,13 +411,11 @@
                 alert(`为了保证首发不炸，雷数最多调整为 ${maxMines}`);
             }
             document.getElementById('custom-mines').value = m;
-
             currentRows = r;
             currentCols = c;
             currentMines = m;
             initGame();
         }
-
         function initGame() {
             stopTimer(false);
             gridElement.innerHTML = '';
@@ -370,14 +424,11 @@
             isGameOver = false;
             revealedCount = 0;
             isFirstClick = true;
-            
             mineCountElement.innerText = formatNumber(flagsLeft);
             timerElement.innerText = '000';
             resetBtn.innerText = '😊';
-
             gridElement.style.gridTemplateColumns = `repeat(${currentCols}, 30px)`;
             gridElement.style.gridTemplateRows = `repeat(${currentRows}, 30px)`;
-            
             for (let r = 0; r < currentRows; r++) {
                 const row = [];
                 for (let c = 0; c < currentCols; c++) {
@@ -385,34 +436,50 @@
                     cellElement.classList.add('cell');
                     cellElement.dataset.row = r;
                     cellElement.dataset.col = c;
-                    
                     cellElement.addEventListener('mouseup', (e) => {
+                        if (e.sourceCapabilities && e.sourceCapabilities.firesTouchEvents) return;
                         if (e.button === 0) handleInput(r, c, 'reveal');
                     });
                     cellElement.addEventListener('contextmenu', (e) => {
                         e.preventDefault();
+                        if (e.sourceCapabilities && e.sourceCapabilities.firesTouchEvents) return;
                         handleInput(r, c, 'flag');
                     });
                     cellElement.addEventListener('touchstart', (e) => {
-                        if(e.cancelable) e.preventDefault(); 
+                        if (isKeyboardMode) setKeyboardMode(false);
+                        const touch = e.touches[0];
+                        touchStartX = touch.clientX;
+                        touchStartY = touch.clientY;
+                        isScrolling = false;
                         isLongPressHandled = false;
+
                         longPressTimer = setTimeout(() => {
-                            handleInput(r, c, 'flag');
-                            isLongPressHandled = true;
-                            if (navigator.vibrate) navigator.vibrate(50); 
+                            if (!isScrolling) {
+                                handleInput(r, c, 'reveal'); 
+                                isLongPressHandled = true;
+                                if (navigator.vibrate) navigator.vibrate(50); 
+                            }
                         }, 400);
-                    }, { passive: false });
+                    }, { passive: true });
+                    cellElement.addEventListener('touchmove', (e) => {
+                        const touch = e.touches[0];
+                        const diffX = Math.abs(touch.clientX - touchStartX);
+                        const diffY = Math.abs(touch.clientY - touchStartY);
+                        if (diffX > 10 || diffY > 10) {
+                            isScrolling = true;
+                            clearTimeout(longPressTimer); 
+                        }
+                    }, { passive: true });
                     cellElement.addEventListener('touchend', (e) => {
                         clearTimeout(longPressTimer);
-                        if (!isLongPressHandled) handleInput(r, c, 'reveal');
+                        if (isScrolling) return;
+                        if (!isLongPressHandled) {
+                            if (e.cancelable) e.preventDefault(); 
+                            const action = isFirstClick ? 'reveal' : 'flag';
+                            handleInput(r, c, action);
+                        }
                     });
-                    cellElement.addEventListener('touchmove', () => {
-                         clearTimeout(longPressTimer);
-                         isLongPressHandled = true; 
-                    });
-
                     gridElement.appendChild(cellElement);
-
                     row.push({
                         element: cellElement,
                         isMine: false,
@@ -423,8 +490,114 @@
                 }
                 grid.push(row);
             }
-        }
+            if (cursorRow >= currentRows) cursorRow = currentRows - 1;
+            if (cursorCol >= currentCols) cursorCol = currentCols - 1;
+            if (cursorRow < 0) cursorRow = 0;
+            if (cursorCol < 0) cursorCol = 0;
 
+            if (isKeyboardMode) updateCursor();
+        }
+        function setKeyboardMode(active) {
+            isKeyboardMode = active;
+            
+            if (active) {
+                document.body.classList.add('keyboard-mode');
+                updateCursor();
+            } else {
+                document.body.classList.remove('keyboard-mode');
+                const oldCursor = document.querySelector('.cell.cursor');
+                if (oldCursor) oldCursor.classList.remove('cursor');
+            }
+        }
+        function updateCursor() {
+            if (!isKeyboardMode) return;
+            const oldCursor = document.querySelector('.cell.cursor');
+            if (oldCursor) oldCursor.classList.remove('cursor');
+            if (grid[cursorRow] && grid[cursorRow][cursorCol]) {
+                const cell = grid[cursorRow][cursorCol].element;
+                cell.classList.add('cursor');
+                const rect = cell.getBoundingClientRect();
+                const isInView = (
+                    rect.top >= 0 &&
+                    rect.left >= 0 &&
+                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                );
+                if (!isInView) {
+                    cell.scrollIntoView({ behavior: 'auto', block: 'nearest', inline: 'nearest' });
+                }
+            }
+        }
+        function moveCursor(dr, dc) {
+            let r = cursorRow + dr;
+            let c = cursorCol + dc;
+            if (r < 0 || r >= currentRows || c < 0 || c >= currentCols) return;
+            const isEmptySpace = (rr, cc) => {
+                const cell = grid[rr][cc];
+                return cell.isRevealed && cell.neighborMines === 0 && !cell.isMine;
+            };
+            if (isEmptySpace(r, c)) {
+                while (true) {
+                    let nextR = r + dr;
+                    let nextC = c + dc;
+                    if (nextR < 0 || nextR >= currentRows || nextC < 0 || nextC >= currentCols) {
+                        break;
+                    }
+                    r = nextR;
+                    c = nextC;
+                    if (!isEmptySpace(r, c)) {
+                        break;
+                    }
+                }
+            }
+            cursorRow = r;
+            cursorCol = c;
+            updateCursor();
+        }
+        window.addEventListener('mousemove', () => {
+            if (isKeyboardMode) setKeyboardMode(false);
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.target.tagName === 'INPUT') return;
+            const key = e.key.toLowerCase();
+            const code = e.code;
+            if (key === 'f') {
+                e.preventDefault();
+                toggleBrowserFullscreen();
+                return;
+            }
+            if (key === 't') {
+                cycleDifficulty();
+                return;
+            }
+            if (key === 'y') {
+                cycleTheme();
+                return;
+            }
+            if (key === ' ') {
+                e.preventDefault();
+                initGame();
+                return;
+            }
+            const isMoveKey = ['w', 'a', 's', 'd', 'arrowup', 'arrowleft', 'arrowdown', 'arrowright'].includes(key);
+            const isActionKey = ['j', 'k'].includes(key);
+            if (isMoveKey || isActionKey) {
+                if (!isKeyboardMode) setKeyboardMode(true);
+                if (isMoveKey) {
+                    e.preventDefault();
+                    let dr = 0;
+                    let dc = 0;
+                    if (key === 'w' || code === 'ArrowUp') dr = -1;
+                    if (key === 's' || code === 'ArrowDown') dr = 1;
+                    if (key === 'a' || code === 'ArrowLeft') dc = -1;
+                    if (key === 'd' || code === 'ArrowRight') dc = 1;
+                    moveCursor(dr, dc);
+                } else if (isActionKey) {
+                    if (key === 'j') handleInput(cursorRow, cursorCol, 'reveal');
+                    if (key === 'k') handleInput(cursorRow, cursorCol, 'flag');
+                }
+            }
+        });
         function startTimer() {
             startTime = Date.now();
             timerInterval = setInterval(() => {
@@ -433,7 +606,6 @@
                 timerElement.innerText = Math.min(seconds, 999).toString().padStart(3, '0');
             }, 100);
         }
-
         function stopTimer(isWin) {
             if (timerInterval) {
                 clearInterval(timerInterval);
@@ -444,11 +616,9 @@
                 timerElement.innerText = elapsed.toFixed(1);
             }
         }
-
         function handleInput(r, c, action) {
             if (isGameOver) return;
             const cell = grid[r][c];
-
             if (action === 'flag') {
                 if (cell.isRevealed) {
                     attemptChording(r, c);
@@ -458,19 +628,16 @@
             } 
             else if (action === 'reveal') {
                 if (cell.isFlagged) return;
-                
                 if (cell.isRevealed) {
                     attemptChording(r, c);
                     return;
                 }
-
                 if (isFirstClick) {
                     isFirstClick = false;
                     startTimer();
                     placeMines(r, c);
                     calculateNumbers();
                 }
-
                 if (cell.isMine) {
                     gameOver(false);
                 } else {
@@ -479,7 +646,6 @@
                 }
             }
         }
-
         function attemptChording(r, c) {
             const cell = grid[r][c];
             if (cell.neighborMines === 0) return; 
@@ -489,7 +655,6 @@
             neighbors.forEach(n => {
                 if (grid[n.r][n.c].isFlagged) flagCount++;
             });
-
             if (flagCount !== cell.neighborMines) {
                 neighbors.forEach(n => {
                     const neighborCell = grid[n.r][n.c];
@@ -500,7 +665,6 @@
                 });
                 return;
             }
-
             let hitMine = false;
             neighbors.forEach(n => {
                 const target = grid[n.r][n.c];
@@ -513,11 +677,9 @@
                     }
                 }
             });
-
             if (hitMine) gameOver(false);
             else checkWin();
         }
-
         function getNeighbors(r, c) {
             const arr = [];
             for (let i = -1; i <= 1; i++) {
@@ -531,7 +693,6 @@
             }
             return arr;
         }
-
         function toggleFlag(cell) {
             if (cell.isFlagged) {
                 cell.isFlagged = false;
@@ -546,25 +707,20 @@
             }
             mineCountElement.innerText = formatNumber(flagsLeft);
         }
-
         function placeMines(safeRow, safeCol) {
             let minesPlaced = 0;
             while (minesPlaced < currentMines) {
                 const r = Math.floor(Math.random() * currentRows);
                 const c = Math.floor(Math.random() * currentCols);
-                
                 const distR = Math.abs(r - safeRow);
                 const distC = Math.abs(c - safeCol);
-
                 if (distR <= 1 && distC <= 1) continue;
-
                 if (!grid[r][c].isMine) {
                     grid[r][c].isMine = true;
                     minesPlaced++;
                 }
             }
         }
-
         function calculateNumbers() {
             for (let r = 0; r < currentRows; r++) {
                 for (let c = 0; c < currentCols; c++) {
@@ -577,16 +733,13 @@
                 }
             }
         }
-
         function revealCell(r, c) {
             if (r < 0 || r >= currentRows || c < 0 || c >= currentCols) return;
             const cell = grid[r][c];
             if (cell.isRevealed || cell.isFlagged) return;
-
             cell.isRevealed = true;
             cell.element.classList.add('revealed');
             revealedCount++;
-
             if (cell.neighborMines > 0) {
                 cell.element.innerText = cell.neighborMines;
                 cell.element.classList.add(`num-${cell.neighborMines}`);
@@ -596,12 +749,10 @@
                 });
             }
         }
-
         function gameOver(isWin) {
             isGameOver = true;
             stopTimer(isWin);
             resetBtn.innerText = isWin ? '😎' : '😵';
-            
             if (!isWin) {
                 if (navigator.vibrate) navigator.vibrate([200, 100, 200]);
                 grid.forEach(row => {
@@ -615,11 +766,8 @@
                         }
                     });
                 });
-            } else {
-                // 这里已经移除了 alert 弹窗
             }
         }
-
         function checkWin() {
             if (revealedCount + currentMines === currentRows * currentCols) {
                 for (let r = 0; r < currentRows; r++) {
@@ -635,15 +783,12 @@
                 gameOver(true);
             }
         }
-
         function formatNumber(num) {
             if (num < 0) return '000';
             return num.toString().padStart(3, '0');
         }
-
         resetBtn.addEventListener('click', initGame);
         setDifficulty('easy');
-
     </script>
 </body>
 </html>
