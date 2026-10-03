@@ -1,0 +1,17 @@
+<script>
+  (() => {
+    let preference = 'system';
+    try {
+      const saved = localStorage.getItem('aneko-theme');
+      if (['system', 'light', 'dark'].includes(saved)) preference = saved;
+    } catch (_) {}
+    const theme = preference === 'system'
+      ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+      : preference;
+    document.documentElement.dataset.theme = theme;
+    document.documentElement.dataset.themePreference = preference;
+    document.querySelectorAll('meta[name="theme-color"]').forEach(meta => {
+      meta.content = theme === 'dark' ? '#1E1A24' : '#FCF9F8';
+    });
+  })();
+</script>

@@ -1,0 +1,15 @@
+<section class="theme-sample" data-sample-theme="{{ include.theme }}" aria-labelledby="{{ include.theme }}-sample-title">
+  <h3 class="sample-name" id="{{ include.theme }}-sample-title">{% if include.theme == 'light' %}浅色 · 粉紫日光{% else %}深色 · 暮色沙丘{% endif %}</h3>
+  <div class="swatch-grid">
+    {% for color in site.data.palette %}
+    <div class="swatch"><div class="swatch-color" style="--swatch: var({{ color.token }})" aria-hidden="true"></div><p class="swatch-label"><span>{{ color.label }}</span><code>{{ color[include.theme] }}</code></p></div>
+    {% endfor %}
+  </div>
+  <div class="sample-panel">
+    <h4>记一点日常，写一点奇想。</h4>
+    <p>正文保持清晰，装饰留在边缘。</p>
+    <p class="sample-muted">次要文字仍然拥有足够的对比度。</p>
+    <div class="button-row"><a class="button button-primary" href="{{ '/posts.html' | relative_url }}">看看文章 <span aria-hidden="true">→</span></a><a class="button button-secondary" href="{{ '/' | relative_url }}">回到首页</a></div>
+    <ul class="tag-list" aria-label="标签示例"><li class="tag">随笔</li><li class="tag">日常</li><li class="tag">奇想</li></ul>
+  </div>
+</section>

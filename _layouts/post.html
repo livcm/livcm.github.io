@@ -1,29 +1,24 @@
 ---
 layout: default
 ---
-
-<style type="text/css">
-  h1{margin:0}
-</style>
-<h1>{{ page.title }}</h1>
-<small>
-  {{ page.date | date: "%B %-d, %Y at %H:%M:%S" }}, By {{ page.author | default: site.author }}
-</small>
-
-{{content}}
-
-<hr />
-
-<a href="http://creativecommons.org/licenses/by-sa/4.0/" alt="License">
-  <img src="https://img.shields.io/badge/CC--BY--SA-4.0-EF9421.svg?style=plastic&logo=creativecommons">
-</a>
-<br />
-<small>
-{% if page.categories %}
-  Category: <em>{{ page.categories }}</em>
-{% endif %}
-<br />
-{% if page.tags %}
-  Tags: <em>{{ page.tags | join: "</em> / <em>" }}</em>
-{% endif %}
-</small>
+<article class="reading-column">
+  <header class="article-header">
+    <a class="back-link" href="{{ '/posts.html' | relative_url }}"><span aria-hidden="true">←</span> 全部文章</a>
+    <h1>{{ page.title | escape }}</h1>
+    <div class="article-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: '%Y年%m月%d日 %H:%M' }}</time>
+      <span>作者 {{ page.author | default: site.author | escape }}</span>
+      {% if page.categories.size > 0 %}<span>{{ page.categories | join: ' / ' | escape }}</span>{% endif %}
+    </div>
+    {% if page.tags.size > 0 %}
+    <ul class="tag-list" aria-label="文章标签">
+      {% for tag in page.tags %}<li class="tag">{{ tag | escape }}</li>{% endfor %}
+    </ul>
+    {% endif %}
+  </header>
+  <div class="prose">{{ content }}</div>
+  <footer class="article-footer">
+    <p>本文采用 <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> 许可协议，转载请注明出处。</p>
+    <a class="text-link" href="{{ '/posts.html' | relative_url }}">继续读些手记 <span aria-hidden="true">→</span></a>
+  </footer>
+</article>

@@ -1,29 +1,56 @@
 <!DOCTYPE html>
-<html lang="{{ site.lang | default: "en-US" }}">
+<html lang="{{ site.lang | default: 'zh-CN' }}">
   <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="{{ 'assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#FCF9F8" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#1E1A24" media="(prefers-color-scheme: dark)">
+    <title>{% if page.url == '/' %}{{ site.title | escape }}{% else %}{{ page.title | default: '手记' | escape }}｜{{ site.title | escape }}{% endif %}</title>
+    {% include theme-init.html %}
+    <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
     {% include head-custom.html %}
-    {% seo %}
+    {% seo title=false %}
+    <script src="{{ '/assets/scripts/theme.js' | relative_url }}" defer></script>
+    {% if page.url == '/' %}<script src="{{ '/assets/scripts/time.js' | relative_url }}" defer></script>{% endif %}
   </head>
   <body>
-    <header>
-      <div class="container">
-        <a id="a-title" alt="Back to Home" href="{{ '/' | relative_url }}">
-          <h1>{{ site.title | default: site.github.repository_name }}</h1>
+    <a class="skip-link" href="#main-content">跳至正文</a>
+    <header class="site-header">
+      <div class="site-container header-inner">
+        <a class="site-brand" href="{{ '/' | relative_url }}" aria-label="{{ site.title | escape }}，首页">
+          {% include paw.html %}
+          <span>{{ site.title }}</span>
         </a>
-        <h2>{{ site.description | default: site.github.project_tagline }}</h2>
-        <a href="/" alt="Home" class="btn">Home</a>
-        <a href="/posts" alt="Posts" class="btn">Posts</a>
-        <a href="{{ site.github.repository_url }}" alt="Source Code" class="btn btn-github"><span class="icon"></span>Source Code</a>
+        <nav class="site-nav" aria-label="主导航">
+          <a href="{{ '/' | relative_url }}"{% if page.url == '/' %} aria-current="page"{% endif %}>首页</a>
+          <a href="{{ '/posts.html' | relative_url }}"{% if page.url == '/posts.html' or page.layout == 'post' %} aria-current="{% if page.layout == 'post' %}true{% else %}page{% endif %}"{% endif %}>文章</a>
+        </nav>
+        <div class="theme-control" data-theme-control hidden>
+          <label class="visually-hidden" for="theme-select">页面主题</label>
+          <select id="theme-select" data-theme-select>
+            <option value="system">跟随系统</option>
+            <option value="light">浅色</option>
+            <option value="dark">深色</option>
+          </select>
+        </div>
       </div>
     </header>
-    <div class="container">
-      <section id="main_content">
-        {{ content }}
-      </section>
-    </div>
+    <main class="site-container main-content" id="main-content" tabindex="-1">
+      {{ content }}
+    </main>
+    <footer class="site-footer">
+      <div class="site-container footer-inner">
+        <div>
+          <p class="footer-signature">Aneko 的奇想手记<span class="signature-dot" aria-hidden="true"> · </span>记一点日常，写一点奇想。</p>
+          <p class="footer-credit">© {{ site.time | date: '%Y' }} Aneko · 由 Jekyll 与 GitHub Pages 支持</p>
+        </div>
+        <nav class="footer-links" aria-label="页脚导航">
+          <a href="{{ site.source_url }}">源码</a>
+          <a href="{{ site.source_url }}/issues/new">反馈</a>
+          <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
+        </nav>
+      </div>
+    </footer>
   </body>
 </html>
