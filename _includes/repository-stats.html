@@ -1,0 +1,22 @@
+<section class="repository-stats-section" data-repository-stats data-repository-url="{{ site.source_url | escape }}" aria-labelledby="repository-stats-title">
+  <h2 class="eyebrow" id="repository-stats-title">这本手记，也在慢慢生长</h2>
+  <div class="repository-stats">
+    <a class="repository-stat" href="{{ site.source_url }}/stargazers" data-stat-link="stars">
+      <span class="stat-label">Star 数 <span aria-hidden="true">↗</span></span>
+      <strong class="stat-value" data-stat-value="stars">查看</strong>
+      <span class="stat-caption" data-stat-caption="stars">仓库收藏</span>
+    </a>
+    <a class="repository-stat" href="{{ site.source_url }}/commits/main" data-stat-link="commit">
+      <span class="stat-label">上次提交 <span aria-hidden="true">↗</span></span>
+      <strong class="stat-value stat-date" data-stat-value="commit">查看</strong>
+      <span class="stat-caption" data-stat-caption="commit">最近一次更新</span>
+    </a>
+    <a class="repository-stat" href="{{ site.source_url }}/activity" data-stat-link="activity">
+      <span class="stat-label">提交活动 <span aria-hidden="true">↗</span></span>
+      <strong class="stat-value" data-stat-value="activity">查看</strong>
+      <span class="stat-caption" data-stat-caption="activity">最近 7 天（UTC）</span>
+      <svg class="stat-chart" data-stat-chart viewBox="0 0 144 28" preserveAspectRatio="none" aria-hidden="true" focusable="false" hidden></svg>
+    </a>
+  </div>
+  <p class="stats-status" data-stats-status role="status" hidden></p>
+</section>
