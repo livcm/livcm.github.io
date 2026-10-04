@@ -181,10 +181,6 @@ code { font-family: var(--font-mono); font-size: .88em; }
 .stat-caption { color: var(--color-muted); font-size: 14px; overflow-wrap: anywhere; }
 .stat-chart { width: 100%; height: 28px; margin-top: 4px; fill: var(--color-accent); }
 .stats-status { margin-top: 12px; margin-bottom: 16px; color: var(--color-muted); font-size: 14px; }
-.repository-stats-section + .repository-links { margin-top: 16px; }
-.repository-links { display: flex; align-items: center; flex-wrap: wrap; gap: 4px 20px; }
-.repository-links a { display: inline-flex; align-items: center; min-height: 44px; text-decoration: none; }
-.repository-links a:hover { text-decoration: underline; }
 .home-smallprint { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; margin-top: 8px; }
 .local-clock time { font-variant-numeric: tabular-nums; }
 
@@ -325,7 +321,6 @@ code { font-family: var(--font-mono); font-size: .88em; }
   .game-accounts summary { padding-inline: 20px; }
   .summary-note { display: block; margin-left: 0; }
   .game-list { grid-template-columns: 1fr; padding-inline: 20px; }
-  .repository-links { gap: 0 16px; }
   .repository-stats { grid-template-columns: 1fr; }
   .repository-stat { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 4px 16px; padding: 20px; }
   .repository-stat + .repository-stat { border-left: 0; border-top: 1px solid var(--color-border); }
@@ -334,7 +329,6 @@ code { font-family: var(--font-mono); font-size: .88em; }
   .repository-stat .stat-value { grid-column: 2; grid-row: 1; font-size: 24px; }
   .repository-stat .stat-date { font-size: 22px; }
   .stat-caption, .stat-chart { grid-column: 1 / -1; }
-  .repository-links > span { flex-basis: 100%; }
   .home-smallprint { flex-direction: column; }
   .local-clock { display: flex; flex-wrap: wrap; column-gap: 8px; }
   .main-content { padding-bottom: 48px; }

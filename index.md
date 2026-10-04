@@ -46,6 +46,5 @@ title: "Aneko 的奇想手记"
 
 <aside class="home-notes" aria-label="网站信息">
   {% include repository-stats.html %}
-  <div class="repository-links"><span>这页手记的背后</span><a href="{{ site.source_url }}">仓库</a><a href="{{ site.source_url }}/stargazers">Star</a><a href="{{ site.source_url }}/commits/main">提交记录</a><a href="{{ site.source_url }}/activity">活动</a></div>
   <div class="home-smallprint"><span>始于 <time datetime="2022-11-12">2022.11.12</time></span><span class="local-clock" data-clock-wrapper hidden>你的本地时间 <time id="currentTime"></time></span></div>
 </aside>
