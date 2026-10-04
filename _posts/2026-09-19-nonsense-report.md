@@ -1,7 +1,7 @@
 ---
 title: "关于进一步做好相关工作的几点意见的补充说明的情况报告"
-categories: [随笔]
-tags: [废话文学, 公文写作, 高度重视]
+categories: 
+tags: 
 date: 2026-09-19 18:30:00 +0800
 permalink: /2026/09/19/nonsense-report.html
 ---
