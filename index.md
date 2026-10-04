@@ -30,14 +30,14 @@ title: "Aneko 的奇想手记"
   <div class="personal-content">
     <ul class="contact-list">
       {% for contact in site.data.profile.contacts %}
-      <li><a class="contact-link" href="{{ contact.url | escape }}"><span class="contact-name">{{ contact.name | escape }}</span><span class="contact-handle">{{ contact.handle | escape }} <span class="contact-arrow" aria-hidden="true">↗</span></span></a></li>
+      <li><a class="contact-link" href="{{ contact.url | escape }}">{% include profile-icon.html name=contact.icon %}<span class="contact-copy"><span class="contact-name">{{ contact.name | escape }}</span><span class="contact-handle">{{ contact.handle | escape }} <span class="contact-arrow" aria-hidden="true">↗</span></span></span></a></li>
       {% endfor %}
     </ul>
     <details class="game-accounts">
       <summary><span>游戏里的我 <span class="summary-note">账号与服务器</span></span><span class="disclosure-arrow" aria-hidden="true">+</span></summary>
       <dl class="game-list">
         {% for game in site.data.profile.games %}
-        <div><dt>{{ game.name | escape }}</dt><dd>{% for account in game.accounts %}<p><code>{{ account.id | escape }}</code><span class="server-label">{{ account.server | escape }}</span></p>{% endfor %}</dd></div>
+        <div><dt><img class="game-icon" src="{{ game.icon | relative_url }}" width="32" height="32" alt="" loading="lazy"><span>{{ game.name | escape }}</span></dt><dd>{% for account in game.accounts %}<p><code>{{ account.id | escape }}</code><span class="server-label">{{ account.server | escape }}</span></p>{% endfor %}</dd></div>
         {% endfor %}
       </dl>
     </details>

@@ -144,7 +144,10 @@ code { font-family: var(--font-mono); font-size: .88em; }
 .personal-intro .text-link { margin-top: 16px; }
 .personal-content { min-width: 0; }
 .contact-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 32px; padding: 24px 32px; margin: 0; list-style: none; border: 1px solid var(--color-border); background: var(--color-surface); border-radius: var(--radius-panel); box-shadow: var(--shadow-soft); }
-.contact-link { display: flex; flex-direction: column; justify-content: center; gap: 4px; min-height: 64px; color: var(--color-text); text-decoration: none; }
+.profile-icon { display: inline-flex; align-items: center; justify-content: center; flex: 0 0 40px; width: 40px; height: 40px; border-radius: 12px; background: var(--color-tint); color: var(--color-accent); }
+.profile-icon svg { display: block; width: 24px; height: 24px; }
+.contact-link { display: flex; align-items: center; gap: 12px; min-height: 64px; color: var(--color-text); text-decoration: none; }
+.contact-copy { display: flex; flex-direction: column; gap: 4px; min-width: 0; }
 .contact-name { color: var(--color-muted); font-size: 14px; }
 .contact-handle { font-size: 16px; overflow-wrap: anywhere; }
 .contact-arrow { display: inline-block; margin-left: 4px; color: var(--color-accent); }
@@ -157,7 +160,8 @@ code { font-family: var(--font-mono); font-size: .88em; }
 .disclosure-arrow { color: var(--color-accent); font-size: 24px; line-height: 1; transition: transform var(--duration); }
 .game-accounts[open] .disclosure-arrow { transform: rotate(45deg); }
 .game-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin: 0; padding: 8px 24px 24px; }
-.game-list dt { font-size: 14px; color: var(--color-muted); margin-bottom: 8px; }
+.game-list dt { display: flex; align-items: center; gap: 10px; font-size: 14px; color: var(--color-muted); margin-bottom: 8px; }
+.game-icon { display: block; flex: 0 0 32px; width: 32px; height: 32px; object-fit: cover; border-radius: 8px; }
 .game-list dd { margin: 0; }
 .game-list dd p { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px; }
 .game-list code { font-size: 14px; overflow-wrap: anywhere; }

@@ -1,32 +1,44 @@
 contacts:
   - name: GitHub
+    icon: github
     handle: livcm
     url: https://github.com/livcm/
   - name: X (Twitter)
-    handle: "@Aneko__QhJ"
+    icon: x
+    handle: "@Aneko_QhJ"
     url: https://twitter.com/Aneko_QhJ
   - name: Instagram
-    handle: aneko__qhj
+    icon: instagram
+    handle: aneko_qhj
     url: https://www.instagram.com/aneko_qhj/
+  - name: Twitch
+    icon: twitch
+    handle: aneko_qhj
+    url: https://www.twitch.tv/aneko_qhj
   - name: 邮箱
+    icon: mail
     handle: aneko.qhj@gmail.com
     url: mailto:aneko.qhj@gmail.com
 games:
   - name: Arknights
+    icon: /assets/imgs/games/arknights.jpg
     accounts:
       - id: "Rainbowmxx#6081"
-        server: Hypergraph
+        server: 泰拉#0
   - name: Genshin Impact
+    icon: /assets/imgs/games/gi.jpg
     accounts:
       - id: "312807955"
         server: 天空岛
       - id: "836010689"
         server: Asia
   - name: "Honkai: Star Rail"
+    icon: /assets/imgs/games/hsr.jpg
     accounts:
       - id: "806085675"
         server: Asia
   - name: Zenless Zone Zero
+    icon: /assets/imgs/games/zzz.jpg
     accounts:
       - id: "1303488761"
         server: Asia
