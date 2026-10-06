@@ -1,0 +1,51 @@
+name: Refresh repository statistics
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - '_data/repository_stats.json'
+  schedule:
+    - cron: '23 */6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+
+concurrency:
+  group: repository-statistics
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Verify statistics generation
+        run: python3 -B scripts/test_repository_stats.py
+      - name: Generate public statistics
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 -B scripts/update_repository_stats.py
+      - name: Save the snapshot
+        id: snapshot
+        run: |
+          if git diff --quiet -- _data/repository_stats.json; then
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add _data/repository_stats.json
+          git commit -m 'chore: refresh repository statistics'
+          git push origin HEAD:main
+          echo 'changed=true' >> "$GITHUB_OUTPUT"
+      # GITHUB_TOKEN pushes do not automatically trigger the existing Pages build.
+      - name: Rebuild the existing GitHub Pages site
+        if: steps.snapshot.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api --method POST "repos/$GITHUB_REPOSITORY/pages/builds" --silent

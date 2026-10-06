@@ -77,7 +77,11 @@
 
 首页顺序为站名与副标题 → 最新文章 → 全部文章入口 → 联系与游戏账号 → 仓库统计和时钟。GitHub 统计使用原生三列数据面板，窄屏改为纵向排列；沿用网站字体、语义配色、细分隔线与 16px 圆角，不使用远程徽章。统计面板本身提供查看入口，下方不重复设置按钮；「查看源码」统一放在页脚导航。
 
-统计显示 Star 数、默认分支最近提交的提交者时间（UTC+8），以及最近 7 天的提交次数（UTC），附最近 12 周趋势。数据读取 GitHub 公开 REST API 的仓库、提交及 `stats/participation` 接口；活动统计不含合并提交，口径见 [GitHub 统计文档](https://docs.github.com/en/rest/metrics/statistics)。各项独立加载，15 分钟内复用本地缓存；更新失败可保留七天以内的缓存并明确标记时间，无缓存时显示暂不可用与查看入口。禁用 JavaScript 时仍可点击各项前往 GitHub。
+统计显示 Star 数、默认分支最近内容提交的提交者时间（UTC+8），以及含今日在内最近 7 个 UTC 自然日的提交次数，附最近 12 个七日窗口的趋势。Star 数由 GitHub 仓库接口读取，匿名接口受限时生成器可回退至公开仓库页中的完整计数；提交与活动从完整 Git 历史生成。活动排除合并提交，所有提交信息排除专门刷新统计的机器人提交。
+
+数据保存在 `_data/repository_stats.json`，由 Jekyll 直接渲染数字、日期和 SVG 趋势。浏览器不再请求 GitHub API，不依赖 JavaScript 或本地存储。工作流使用内置 `GITHUB_TOKEN` 在内容推送后及每六小时更新快照，并显式请求既有 Pages 构建；无需将令牌交给前端或改动 Pages 发布源。Star 更新失败时保留已有值与原时间，避免将接口失败误显示为零。页面显示统计更新时间，数据尚未初始化时仍提供 GitHub 查看入口。
+
+本地更新使用 `python3 -B scripts/update_repository_stats.py`，验证使用 `python3 -B scripts/test_repository_stats.py`。工作流会创建专门的统计更新提交；因为 `GITHUB_TOKEN` 推送不自动触发 Pages 构建，随后通过 [请求 Pages 构建接口](https://docs.github.com/en/rest/pages/pages#request-a-github-pages-build) 发布更新，保留当前分支发布方式。
 
 保留既有文章永久链接和 `/posts.html`、`/404.html`。所有站内导航和资源通过 `relative_url` 兼容 `baseurl`；GitHub Pages 的 `/posts` 无扩展名入口仍对应文章页。新增 `/style-guide/`，主导航仅保留首页与文章。
 

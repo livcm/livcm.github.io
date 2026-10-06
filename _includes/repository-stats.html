@@ -1,22 +1,36 @@
-<section class="repository-stats-section" data-repository-stats data-repository-url="{{ site.source_url | escape }}" aria-labelledby="repository-stats-title">
+{% assign stats = site.data.repository_stats %}
+{% assign latest_commit = stats.commit.value %}
+{% if stats.activity %}
+{% assign weeks = stats.activity.value | slice: -12, 12 %}
+{% assign maximum = weeks | sort | last | at_least: 1 %}
+{% endif %}
+<section class="repository-stats-section" data-repository-stats aria-labelledby="repository-stats-title">
   <h2 class="eyebrow" id="repository-stats-title">这本手记，也在慢慢生长</h2>
   <div class="repository-stats">
     <a class="repository-stat" href="{{ site.source_url }}/stargazers" data-stat-link="stars">
       <span class="stat-label">Star 数 <span aria-hidden="true">↗</span></span>
-      <strong class="stat-value" data-stat-value="stars">查看</strong>
-      <span class="stat-caption" data-stat-caption="stars">仓库收藏</span>
+      <strong class="stat-value" data-stat-value="stars">{{ stats.stars.value | default: '查看' }}</strong>
+      <span class="stat-caption" data-stat-caption="stars">仓库收藏{% if stats.stars.updated != stats.generated_at %} · 数据截至 {{ stats.stars.updated | date: '%Y.%m.%d %H:%M' }}（UTC+8）{% endif %}</span>
     </a>
-    <a class="repository-stat" href="{{ site.source_url }}/commits/main" data-stat-link="commit">
+    <a class="repository-stat" href="{{ site.source_url }}{% if latest_commit %}/commit/{{ latest_commit.sha }}{% else %}/commits/main{% endif %}" data-stat-link="commit">
       <span class="stat-label">上次提交 <span aria-hidden="true">↗</span></span>
-      <strong class="stat-value stat-date" data-stat-value="commit">查看</strong>
-      <span class="stat-caption" data-stat-caption="commit">最近一次更新</span>
+      <strong class="stat-value stat-date" data-stat-value="commit">{% if latest_commit %}<time datetime="{{ latest_commit.date | escape }}">{{ latest_commit.date | date: '%Y.%m.%d' }}</time>{% else %}查看{% endif %}</strong>
+      <span class="stat-caption" data-stat-caption="commit">{% if latest_commit %}{{ latest_commit.date | date: '%H:%M' }} · UTC+8{% else %}最近一次更新{% endif %}</span>
     </a>
     <a class="repository-stat" href="{{ site.source_url }}/activity" data-stat-link="activity">
       <span class="stat-label">提交活动 <span aria-hidden="true">↗</span></span>
-      <strong class="stat-value" data-stat-value="activity">查看</strong>
-      <span class="stat-caption" data-stat-caption="activity">最近 7 天（UTC）</span>
-      <svg class="stat-chart" data-stat-chart viewBox="0 0 144 28" preserveAspectRatio="none" aria-hidden="true" focusable="false" hidden></svg>
+      <strong class="stat-value" data-stat-value="activity">{% if stats.activity %}{{ stats.activity.value | last }} 次{% else %}查看{% endif %}</strong>
+      <span class="stat-caption" data-stat-caption="activity">最近 7 天（UTC）{% if stats.activity %} · 近 {{ weeks.size }} 周趋势{% endif %}</span>
+      {% if stats.activity %}
+      <svg class="stat-chart" data-stat-chart viewBox="0 0 144 28" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        {% for count in weeks %}
+        {% assign height = count | times: 28 | divided_by: maximum | at_least: 2 %}
+        {% if count == 0 %}{% assign height = 1 %}{% endif %}
+        <rect x="{{ forloop.index0 | times: 12 }}" y="{{ 28 | minus: height }}" width="8" height="{{ height }}" rx="2" opacity="{% if forloop.last %}1{% else %}.4{% endif %}"></rect>
+        {% endfor %}
+      </svg>
+      {% endif %}
     </a>
   </div>
-  <p class="stats-status" data-stats-status role="status" hidden></p>
+  {% if stats %}<p class="stats-status" data-stats-status>仓库数据 · 更新于 <time datetime="{{ stats.generated_at | escape }}">{{ stats.generated_at | date: '%Y.%m.%d %H:%M' }}</time>（UTC+8）</p>{% endif %}
 </section>
