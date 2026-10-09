@@ -50,9 +50,9 @@ class RepositoryStatsTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as directory:
             output = Path(directory) / "repository_stats.json"
             original = {"value": 0, "updated": "2026-10-01T10:00:00+08:00"}
-            output.write_text(json.dumps({"repository": "livcm/livcm.github.io", "stars": original}))
+            output.write_text(json.dumps({"repository": "Aneko-QhJ/Aneko-QhJ.github.io", "stars": original}))
             commits = [{"sha": "a" * 40, "date": "2026-10-03T18:15:00Z", "merge": False}]
-            with patch.object(stats, "OUTPUT", output), patch.object(stats, "history", return_value=commits), patch.object(stats, "star_count", side_effect=OSError("offline")), patch.dict(stats.os.environ, {"GITHUB_REPOSITORY": "livcm/livcm.github.io"}):
+            with patch.object(stats, "OUTPUT", output), patch.object(stats, "history", return_value=commits), patch.object(stats, "star_count", side_effect=OSError("offline")), patch.dict(stats.os.environ, {"GITHUB_REPOSITORY": "Aneko-QhJ/Aneko-QhJ.github.io"}):
                 stats.main()
             result = json.loads(output.read_text())
             self.assertEqual(result["stars"], original)

@@ -86,7 +86,7 @@ def star_count(repository):
 
 
 def main():
-    repository = os.environ.get("GITHUB_REPOSITORY", "livcm/livcm.github.io")
+    repository = os.environ.get("GITHUB_REPOSITORY", "Aneko-QhJ/Aneko-QhJ.github.io")
     now = datetime.now(timezone.utc)
     updated = now.astimezone(DISPLAY_ZONE).isoformat(timespec="seconds")
     previous = json.loads(OUTPUT.read_text()) if OUTPUT.exists() else {}
