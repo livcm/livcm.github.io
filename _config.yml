@@ -1,11 +1,11 @@
-title: "Aneko 的奇想手记"
-description: "记一点日常，写一点奇想。喵～"
+title: "奇幻菌的奇想手记"
+description: "记一点日常，写一点奇想。喵❤️～"
 author: Aneko
 lang: zh-CN
 timezone: Asia/Shanghai
-url: "https://livcm.github.io"
+url: "https://aneko-qhj.github.io"
 baseurl: ""
-source_url: "https://github.com/livcm/livcm.github.io"
+source_url: "https://github.com/Aneko-QhJ/Aneko-QhJ.github.io"
 theme: null
 plugins:
   - jekyll-seo-tag

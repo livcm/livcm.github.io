@@ -2,7 +2,7 @@
 layout: default
 title: 文章
 permalink: /posts.html
-description: "Aneko 写下的随笔、日常与奇想。"
+description: "奇幻菌写下的随笔、日常与奇想。"
 ---
 <header class="page-header">
   <p class="eyebrow">日常的碎片，偶尔的奇想</p>

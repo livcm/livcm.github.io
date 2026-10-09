@@ -1,13 +1,13 @@
-# Aneko 的奇想手记 · 视觉语言规范
+# 奇幻菌的奇想手记 · 视觉语言规范
 
-本规范与网站共用一套组件语言。打开 [可视化样板](https://livcm.github.io/style-guide/) 可同时对照浅色、深色的配色和真实组件；本地预览对应路径为 `/style-guide/`。
+本规范与网站共用一套组件语言。打开 [可视化样板](https://aneko-qhj.github.io/style-guide/) 可同时对照浅色、深色的配色和真实组件；本地预览对应路径为 `/style-guide/`。
 
 ## 1. 品牌与文案
 
-- 网站名：**Aneko 的奇想手记**。
-- 副标题：**记一点日常，写一点奇想。喵～**
-- 来源：[GitHub 主页](https://github.com/livcm) 的昵称「Aneko奇幻菌喵🐾」及简介「A cute catgirl with twintail, nyan❤️~」。Aneko 提供个人识别，「奇想」呼应奇幻菌，「手记」说明写作与记录的定位。
-- 默认作者显示名为 Aneko；GitHub 账号保持 livcm。文章指定作者时优先使用文章作者。
+- 网站名：**奇幻菌的奇想手记**。
+- 副标题：**记一点日常，写一点奇想。喵❤️～**
+- 来源：[GitHub 主页](https://github.com/Aneko-QhJ) 的昵称「Aneko奇幻菌喵🐾」及简介「A cute catgirl with twintail, nyan❤️~」。Aneko 提供个人识别，「奇想」呼应奇幻菌，「手记」说明写作与记录的定位。
+- 默认作者显示名为 Aneko；GitHub 账号为 Aneko-QhJ。文章指定作者时优先使用文章作者。
 - 猫系气质通过品牌旁一枚线条爪印和副标题中的「喵」表达；正文、导航与帮助文案使用自然中文。
 - 首页浏览器标题仅为网站名，其他页面采用「页面标题｜Aneko 的奇想手记」。首页标题可按自然语义分行，导航中的站名完整显示。
 

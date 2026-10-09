@@ -1,11 +1,11 @@
 ---
 layout: default
-title: "Aneko 的奇想手记"
+title: "奇幻菌的奇想手记"
 ---
 <section class="home-hero" aria-labelledby="home-title">
   <div class="hero-copy">
     <p class="eyebrow"><span class="eyebrow-line" aria-hidden="true"></span>随笔 · 日常 · 奇想</p>
-    <h1 id="home-title">Aneko 的<br>奇想手记<span class="title-period" aria-hidden="true">.</span></h1>
+    <h1 id="home-title">奇幻菌的<br>奇想手记<span class="title-period" aria-hidden="true">.</span></h1>
     <p class="hero-description">{{ site.description }}</p>
     <a class="text-link hero-link" href="#latest-posts">翻开手记 <span aria-hidden="true">↓</span></a>
   </div>
@@ -24,7 +24,7 @@ title: "Aneko 的奇想手记"
   <div class="personal-intro">
     <p class="eyebrow">手记之外</p>
     <h2 id="contact-title">在别处找到我</h2>
-    <p>我是 Aneko奇幻菌喵🐾。<br>欢迎来打个招呼，喵～</p>
+    <p>我是奇幻菌。<br>欢迎来打个招呼，喵～</p>
     <a class="text-link" href="{{ site.source_url }}/issues/new">给手记留个反馈 <span aria-hidden="true">↗</span></a>
   </div>
   <div class="personal-content">
