@@ -4,87 +4,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <title>扫雷</title>
+    <meta name="color-scheme" content="light dark">
+    <script>
+        (() => {
+            let preference = 'system';
+            try {
+                const saved = localStorage.getItem('aneko-theme');
+                if (['system', 'light', 'dark'].includes(saved)) preference = saved;
+            } catch (_) {}
+            const root = document.documentElement;
+            root.dataset.themePreference = preference;
+            root.dataset.theme = preference === 'system'
+                ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light')
+                : preference;
+        })();
+    </script>
+    <link rel="stylesheet" href="assets/css/main.css">
     <style>
         :root {
-            --bg-page: #c0c0c0;
-            --bg-surface: #c0c0c0;
-            --bg-revealed: #dcdcdc;
-            --border-light: #ffffff;
-            --border-dark: #7b7b7b;
-            --text-main: #333333;
-            --flag-color: #000000;
-            --input-bg: #ffffff;
-            --num-1: blue;
-            --num-2: green;
-            --num-3: red;
-            --num-4: darkblue;
-            --num-5: brown;
-            --num-6: cyan;
-            --num-7: black;
-            --num-8: gray;
-            --cursor-color: #FFD700;
+            --bg-page: var(--color-bg);
+            --bg-surface: var(--color-surface);
+            --bg-revealed: var(--color-tint);
+            --border-light: var(--color-border);
+            --border-dark: var(--color-control-border);
+            --text-main: var(--color-text);
+            --flag-color: var(--color-accent);
+            --input-bg: var(--color-bg);
+            --num-1: #526a9c;
+            --num-2: #46715d;
+            --num-3: #a34e6c;
+            --num-4: #74528c;
+            --num-5: #8f613e;
+            --num-6: #36747a;
+            --num-7: var(--color-text);
+            --num-8: var(--color-muted);
+            --cursor-color: var(--color-accent);
+            --danger-bg: #fadfe4;
+            --danger-text: #923e5b;
+        }
+        :root[data-theme="dark"] {
+            --num-1: #a7bfea;
+            --num-2: #a4ceb7;
+            --num-3: #f2adc4;
+            --num-4: #d6b5ea;
+            --num-5: #e4bf99;
+            --num-6: #9cced3;
+            --danger-bg: #593345;
+            --danger-text: #f2adc4;
         }
         @media (prefers-color-scheme: dark) {
-            :root {
-                --bg-page: #121212;
-                --bg-surface: #2d2d2d;
-                --bg-revealed: #1a1a1a;
-                --border-light: #4a4a4a;
-                --border-dark: #000000;
-                --text-main: #e0e0e0;
-                --flag-color: #ffffff;
-                --input-bg: #3d3d3d;
-                --num-1: #5c9aff;
-                --num-2: #66cc66;
-                --num-3: #ff5555;
-                --num-4: #aaaaff;
-                --num-5: #ffcc66;
-                --num-6: #33ffff;
-                --num-7: #dddddd;
-                --num-8: #888888;
+            :root:not([data-theme]) {
+                --num-1: #a7bfea;
+                --num-2: #a4ceb7;
+                --num-3: #f2adc4;
+                --num-4: #d6b5ea;
+                --num-5: #e4bf99;
+                --num-6: #9cced3;
+                --danger-bg: #593345;
+                --danger-text: #f2adc4;
             }
-        }
-        html.dark-theme {
-            --bg-page: #121212;
-            --bg-surface: #2d2d2d;
-            --bg-revealed: #1a1a1a;
-            --border-light: #4a4a4a;
-            --border-dark: #000000;
-            --text-main: #e0e0e0;
-            --flag-color: #ffffff;
-            --input-bg: #3d3d3d;
-            --num-1: #5c9aff;
-            --num-2: #66cc66;
-            --num-3: #ff5555;
-            --num-4: #aaaaff;
-            --num-5: #ffcc66;
-            --num-6: #33ffff;
-            --num-7: #dddddd;
-            --num-8: #888888;
-        }
-        html.light-theme {
-            --bg-page: #c0c0c0;
-            --bg-surface: #c0c0c0;
-            --bg-revealed: #dcdcdc;
-            --border-light: #ffffff;
-            --border-dark: #7b7b7b;
-            --text-main: #333333;
-            --flag-color: #000000;
-            --input-bg: #ffffff;
-            --num-1: blue;
-            --num-2: green;
-            --num-3: red;
-            --num-4: darkblue;
-            --num-5: brown;
-            --num-6: cyan;
-            --num-7: black;
-            --num-8: gray;
         }
         html {
             height: 100%;
         }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: var(--font-body);
+            font-size: 16px;
+            line-height: 1.5;
             background-color: var(--bg-page);
             color: var(--text-main);
             margin: 0;
@@ -98,7 +84,7 @@
             user-select: none;
             -webkit-user-select: none;
             -webkit-touch-callout: none;
-            transition: background-color 0.3s, color 0.3s; 
+            transition: background-color var(--duration), color var(--duration);
         }
         body.no-anim, body.no-anim * {
             transition: none !important;
@@ -129,9 +115,8 @@
             margin-top: 5px;
             padding: 8px 15px;
             background: var(--bg-surface);
-            border: 2px solid var(--border-dark);
-            border-right-color: var(--border-light);
-            border-bottom-color: var(--border-light);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-control);
             flex-direction: column; 
             align-items: flex-start; 
             gap: 8px;
@@ -150,17 +135,15 @@
             align-items: center;
             background: var(--bg-surface);
             padding: 5px;
-            border: 2px solid var(--border-dark);
-            border-right-color: var(--border-light);
-            border-bottom-color: var(--border-light);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-control);
         }
         .custom-group.show { display: flex; }
         button {
             font-family: inherit;
             background: var(--bg-surface);
-            border: 2px solid var(--border-light);
-            border-right-color: var(--border-dark);
-            border-bottom-color: var(--border-dark);
+            border: 1px solid var(--color-control-border);
+            border-radius: var(--radius-control);
             color: var(--text-main);
             cursor: pointer;
             padding: 5px 10px;
@@ -168,27 +151,34 @@
             font-size: 14px;
             white-space: nowrap;
         }
-        button:active { border-style: inset; }
-        button.active { background-color: var(--bg-revealed); border-style: inset; }
+        button:hover { background-color: var(--color-hover); }
+        button:active { background-color: var(--color-tint); }
+        button.active {
+            background-color: var(--color-accent);
+            border-color: var(--color-accent);
+            color: var(--color-bg);
+        }
+        button.active:hover { background-color: var(--color-accent-hover); }
         input {
             width: 40px;
             background: var(--input-bg);
             color: var(--text-main);
             border: 1px solid var(--border-dark);
+            border-radius: 4px;
             text-align: center;
         }
         input[type="checkbox"] {
             width: auto;
             margin: 0;
+            accent-color: var(--color-accent);
         }
         label { font-size: 12px; }
         .game-container {
             background-color: var(--bg-surface);
             padding: 10px;
-            border: 3px solid var(--border-light);
-            border-right-color: var(--border-dark);
-            border-bottom-color: var(--border-dark);
-            box-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-panel);
+            box-shadow: var(--shadow-soft);
             
             display: inline-block; 
             vertical-align: top;
@@ -199,17 +189,16 @@
             justify-content: space-between;
             align-items: center;
             background: var(--bg-surface);
-            border: 2px solid var(--border-dark);
-            border-right-color: var(--border-light);
-            border-bottom-color: var(--border-light);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-control);
             padding: 5px 10px;
             margin-bottom: 10px;
             min-width: 150px;
         }
         .counter {
-            background: black;
-            color: red;
-            font-family: 'Courier New', Courier, monospace;
+            background: var(--color-tint);
+            color: var(--color-accent);
+            font-family: var(--font-mono);
             font-size: 24px;
             padding: 2px 5px;
             border: 1px solid var(--border-dark);
@@ -224,26 +213,22 @@
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            border: 2px solid var(--border-light);
-            border-right-color: var(--border-dark);
-            border-bottom-color: var(--border-dark);
+            border: 1px solid var(--color-control-border);
+            border-radius: var(--radius-control);
             background-color: var(--bg-surface);
         }
-        .face-btn:active { border-style: inset; }
+        .face-btn:hover { background-color: var(--color-hover); }
+        .face-btn:active { background-color: var(--color-tint); }
         #grid {
             display: grid;
-            border: 3px solid var(--border-dark);
-            border-right-color: var(--border-light);
-            border-bottom-color: var(--border-light);
+            border: 1px solid var(--color-control-border);
             touch-action: manipulation;
         }
         .cell {
             width: 30px;
             height: 30px;
             box-sizing: border-box;
-            border: 2px solid var(--border-light);
-            border-right-color: var(--border-dark);
-            border-bottom-color: var(--border-dark);
+            border: 1px solid var(--color-border);
             background-color: var(--bg-surface);
             display: flex;
             align-items: center;
@@ -258,31 +243,35 @@
         .cell.cursor {
             border: 3px solid var(--cursor-color) !important;
             z-index: 10;
-            box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+            box-shadow: 0 0 0 2px var(--color-bg);
             transform: scale(1.15);
         }
         @media (hover: hover) { 
             body:not(.keyboard-mode) .cell:not(.revealed):hover {
-                background-color: rgba(255, 255, 255, 0.2); 
-                background-blend-mode: lighten;
-                box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.3); 
+                background-color: var(--color-hover);
+                box-shadow: inset 0 0 0 1px var(--color-accent);
                 z-index: 1;
             }
         }
         .cell.revealed {
-            border: 1px solid var(--border-dark);
+            border: 1px solid var(--color-border);
             background-color: var(--bg-revealed);
             cursor: default;
             box-shadow: none;
         }
-        @keyframes flash-white {
+        @keyframes flash-accent {
             0% { background-color: var(--bg-surface); }
-            50% { background-color: #ffffff; }
+            50% { background-color: var(--color-lavender); }
             100% { background-color: var(--bg-surface); }
         }
-        .cell.flash { animation: flash-white 0.2s ease-in-out; }
-        .cell.mine { background-color: #cc0000 !important; border-color: var(--border-dark); }
-        .cell.wrong-flag { background-color: rgba(255, 0, 0, 0.3); text-decoration: line-through; }
+        .cell.flash { animation: flash-accent 0.2s ease-in-out; }
+        .cell.mine, .cell.wrong-flag {
+            background-color: var(--danger-bg) !important;
+            color: var(--danger-text);
+            border-color: var(--danger-text);
+        }
+        .cell.wrong-flag { text-decoration: line-through; }
+        body > p { margin-top: 16px; color: var(--color-muted); font-size: 14px; }
         .num-1 { color: var(--num-1); }
         .num-2 { color: var(--num-2); }
         .num-3 { color: var(--num-3); }
@@ -297,12 +286,12 @@
             height: 20px;
             border: 2px solid var(--cursor-color);
             border-radius: 50%;
-            background: rgba(255, 215, 0, 0.3);
+            background: var(--color-tint);
             pointer-events: none;
             z-index: 9999;
             display: none;
             transform: translate(-50%, -50%);
-            box-shadow: 0 0 4px rgba(0,0,0,0.8);
+            box-shadow: var(--shadow-soft);
             left: 50%;
             top: 50%;
         }
@@ -311,7 +300,7 @@
             position: absolute;
             top: 50%; left: 50%;
             width: 4px; height: 4px;
-            background: red;
+            background: var(--color-accent);
             transform: translate(-50%, -50%);
             border-radius: 50%;
         }
@@ -388,7 +377,8 @@
         let cursorRow = 0;
         let cursorCol = 0;
         let currentDifficultyStr = 'easy';
-        let currentThemeStr = 'auto';
+        let currentThemeStr = document.documentElement.dataset.themePreference === 'system'
+            ? 'auto' : document.documentElement.dataset.themePreference;
         let allowMixedInput = false;
         const PRESETS = {
             easy: { r: 9, c: 9, m: 10 },
@@ -427,15 +417,32 @@
                 }
             }
         }
+        const systemTheme = window.matchMedia('(prefers-color-scheme: dark)');
+        function applyTheme() {
+            const html = document.documentElement;
+            html.dataset.themePreference = currentThemeStr === 'auto' ? 'system' : currentThemeStr;
+            html.dataset.theme = currentThemeStr === 'auto'
+                ? (systemTheme.matches ? 'dark' : 'light') : currentThemeStr;
+            document.querySelectorAll('.theme-toggles button').forEach(btn => {
+                const selected = btn.id === `theme-${currentThemeStr}`;
+                btn.classList.toggle('active', selected);
+                btn.setAttribute('aria-pressed', String(selected));
+            });
+        }
         function setTheme(theme) {
             currentThemeStr = theme;
-            const html = document.documentElement;
-            html.classList.remove('light-theme', 'dark-theme');
-            document.querySelectorAll('.theme-toggles button').forEach(btn => btn.classList.remove('active'));
-            document.getElementById(`theme-${theme}`).classList.add('active');
-            if (theme === 'light') html.classList.add('light-theme');
-            else if (theme === 'dark') html.classList.add('dark-theme');
+            try { localStorage.setItem('aneko-theme', theme === 'auto' ? 'system' : theme); } catch (_) {}
+            applyTheme();
         }
+        systemTheme.addEventListener('change', () => {
+            if (currentThemeStr === 'auto') applyTheme();
+        });
+        window.addEventListener('storage', event => {
+            if (event.key !== 'aneko-theme' && event.key !== null) return;
+            currentThemeStr = ['light', 'dark'].includes(event.newValue) ? event.newValue : 'auto';
+            applyTheme();
+        });
+        applyTheme();
         function cycleTheme() {
             const themes = ['auto', 'light', 'dark'];
             let idx = themes.indexOf(currentThemeStr);
