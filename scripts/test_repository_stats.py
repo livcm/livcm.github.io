@@ -9,6 +9,12 @@ import update_repository_stats as stats
 
 
 class RepositoryStatsTests(unittest.TestCase):
+    def test_checked_in_snapshot_is_valid_json(self):
+        snapshot = stats.ROOT / "_data" / "repository_stats.json"
+        data = json.loads(snapshot.read_text(encoding="utf-8"))
+        self.assertEqual(data["repository"], "Aneko-QhJ/Aneko-QhJ.github.io")
+        self.assertEqual(set(data), {"repository", "generated_at", "stars", "commit", "activity"})
+
     def test_utc_windows_include_today_and_exclude_merges(self):
         now = datetime(2026, 10, 6, 14, 0, tzinfo=timezone.utc)
         dates = [
